@@ -5,7 +5,7 @@ class Rounds:
         self.end_date_time = end_date_time
         self.matchs_list = matchs_list    
     
-    def get_round_info_serialized(self):
+    def save_round_info_serialized(self):
         round_info_serialized = {"Round_name": self.round_name, 
                                  "Start_date_time": self.start_date_time, 
                                  "End_date_time": self.end_date_time, 

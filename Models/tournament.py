@@ -9,7 +9,7 @@ class Tounament:
         self.description = description
         self.nb_of_rounds = nb_of_rounds
         
-    def get_tournament_info_serialized(self):
+    def save_tournament_info_serialized(self):
         tournament_info_serialized = {"Name": self.name, 
                                       "Place": self.place, 
                                       "Start_end_date": self.star_end_date, 
