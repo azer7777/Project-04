@@ -1,5 +1,5 @@
+import json
 
-#      01
 
 class Player:
     def __init__(self, family_name, first_name, date_of_birth):
@@ -12,4 +12,14 @@ class Player:
                                  "First_name": self.first_name, 
                                  "Date_of_birth": self.date_of_birth}
         return player_info_serialized
-            
+
+
+family_name = "family_name"
+first_name = "first_name"
+date_of_birth = "date_of_birth"
+
+matcho = Player.__init__("0", family_name, first_name, date_of_birth)
+matchi = Player.get_player_info_serialized
+
+with open("json_match", 'w') as json_file:
+    json.dump(matchi, json_file)    

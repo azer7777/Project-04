@@ -1,5 +1,9 @@
+
+#    04
+
 class Tounament:
-    def __init__(self, name, place, start_end_date, current_round_nb, rounds_list, registred_players_list, description,nb_of_rounds=4):
+    def __init__(self, name, place, start_end_date, current_round_nb,
+                 rounds_list, registred_players_list, description,nb_of_rounds=4):
         self.name = name
         self.place = place
         self.star_end_date = start_end_date
@@ -9,7 +13,7 @@ class Tounament:
         self.description = description
         self.nb_of_rounds = nb_of_rounds
         
-    def save_tournament_info_serialized(self):
+    def get_tournament_info_serialized(self):
         tournament_info_serialized = {"Name": self.name, 
                                       "Place": self.place, 
                                       "Start_end_date": self.star_end_date, 
