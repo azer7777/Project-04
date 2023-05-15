@@ -8,18 +8,24 @@ class Player:
         self.date_of_birth = date_of_birth
         
     def get_player_info_serialized(self):
-        player_info_serialized = {"Family_name": self.family_name, 
-                                 "First_name": self.first_name, 
-                                 "Date_of_birth": self.date_of_birth}
+        player_info_serialized = [{"Family_name": family_name,
+                                  "First_name": first_name,
+                                  "Date_of_birth": date_of_birth}]
+        
         return player_info_serialized
 
 
-family_name = "family_name"
-first_name = "first_name"
-date_of_birth = "date_of_birth"
+family_name = "dzeede"
+first_name = "dfgdfg"
+date_of_birth = "zaah"
 
-matcho = Player.__init__("0", family_name, first_name, date_of_birth)
-matchi = Player.get_player_info_serialized
 
-with open("json_match", 'w') as json_file:
-    json.dump(matchi, json_file)    
+matchi = Player(family_name, first_name, date_of_birth)
+matcho = matchi.get_player_info_serialized()
+
+
+filename = "data_players"
+with open(filename, 'w') as json_file:
+    json.dump(matcho, json_file, 
+                        indent=4,  
+                        separators=(',',': '))

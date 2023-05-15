@@ -1,6 +1,3 @@
-
-#          03
-
 class Rounds:
     def __init__(self, start_date_time, end_date_time, current_round_nb, matchs_list):
         self.round_name = "Round"+ current_round_nb
