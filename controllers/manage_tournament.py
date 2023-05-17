@@ -1,4 +1,4 @@
-from Models import players,matchs,rounds,tournament
+from Models import player,matchs,rounds,tournament
 
  
 

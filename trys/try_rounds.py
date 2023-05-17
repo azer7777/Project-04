@@ -1,4 +1,4 @@
-from Models import matchs
+from Models import match
 
 class Rounds:
     def __init__(self, start_date_time, end_date_time, current_round_nb, matchs_list):
@@ -26,7 +26,7 @@ score_1 = int(input())
 print("Enter player 2 score:")
 score_2 = int(input())
 matchs_list = []
-matcho = matchs.Matchs("player_1", "player_2", score_1, score_2)
+matcho = match.Matches("player_1", "player_2", score_1, score_2)
 matcho_list = matcho.create_matchs_list(matchs_list)
 rounds_list = []
 current_round_nb = 1
