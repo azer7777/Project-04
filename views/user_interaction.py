@@ -1,4 +1,4 @@
-class user_interactions:
+class UserInteractions:
     def get_player_entries():
         print("Enter family name :")
         family_name = input()
@@ -26,5 +26,5 @@ class user_interactions:
         return name,place,start_date, end_date, current_round_nb,registred_players_list,description
 
 
-a = user_interactions.get_tournament_entries()
+a = UserInteractions.get_tournament_entries()
 
