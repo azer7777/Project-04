@@ -1,3 +1,4 @@
+from controllers import manage_app
 from entries import Entries
 
 class Menu:
@@ -23,12 +24,12 @@ class Menu:
         print("""               Player menu                """)
         print()
         option = int(input("""
-                          1 : add a player             2 : display all players
-                          3 : main menu                          
+                          1 : Add a player             2 : Display all players
+                          3 : Main menu                          
                                Enter a matching number to choose an option : """))
         if option == 1:
-            Entries.get_player_entries()
-            print("""    Player succesfully added""")
+            manage_app.Manager.add_player()
+            print("""    Player successfully added""")
         elif option == 2:
             pass
         elif option == 3:
@@ -43,8 +44,8 @@ class Menu:
         print("""               Tournament menu                """)
         print()
         option = int(input("""
-                          1 : create a tournament         2 : display all tournaments
-                          3 : select a tournament         4 : main menu
+                          1 : Create a tournament         2 : Display all tournaments
+                          3 : Select a tournament         4 : Main menu
                                Enter a matching number to choose an option : """))
         if option == 1:
             Entries.get_tournament_entries()
@@ -55,8 +56,8 @@ class Menu:
                 name = input("""Enter a tournament name : """)
                 # to do : display the selected tournament from the json_tournament_data_base
                 option = int(input("""
-                           1 : modifie the tournament            2 : display the registred players
-                           3 : display all rounds and matches    4 : main menu      
+                           1 : Modifie the tournament            2 : Display the registred players
+                           3 : Display all rounds and matches    4 : Main menu      
                                Enter a matching number to choose an option : """))
                 if option == 1:
                     pass
