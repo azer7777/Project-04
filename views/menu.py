@@ -1,5 +1,4 @@
-from controllers import manage_app
-from entries import Entries
+from controllers.manage_app import Manager
 
 class Menu:
     def main_menu():
@@ -28,7 +27,7 @@ class Menu:
                           3 : Main menu                          
                                Enter a matching number to choose an option : """))
         if option == 1:
-            manage_app.Manager.add_player()
+            Manager.add_player()
             print("""    Player successfully added""")
         elif option == 2:
             pass
@@ -48,7 +47,7 @@ class Menu:
                           3 : Select a tournament         4 : Main menu
                                Enter a matching number to choose an option : """))
         if option == 1:
-            Entries.get_tournament_entries()
+            
             print("""    Tounament succesfully created""")
         elif option == 2:
             pass
@@ -81,4 +80,3 @@ class Menu:
 
 
 
-Menu.main_menu()
