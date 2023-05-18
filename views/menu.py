@@ -1,4 +1,4 @@
-from views import entries
+from views.entries import Entries
 
 class Menu:
     def main_menu():
@@ -27,7 +27,7 @@ class Menu:
                           3 : main menu                          
                                Enter a matching number to choose an option : """))
         if option == 1:
-            entries.Entries.get_player_entries()
+            Entries.get_player_entries()
         elif option == 2:
             pass
         elif option == 3:
@@ -46,7 +46,7 @@ class Menu:
                           3 : select a tournament         4 : main menu
                                Enter a matching number to choose an option : """))
         if option == 1:
-            entries.Entries.get_tournament_entries()
+            Entries.get_tournament_entries()
         elif option == 2:
             pass
         elif option == 3:
