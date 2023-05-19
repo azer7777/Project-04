@@ -1,4 +1,4 @@
-from controllers.manage_app import Manager
+
 
 class Menu:
     def main_menu():

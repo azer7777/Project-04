@@ -1,5 +1,5 @@
-from views.entries import Entries
 from models.player import Player
+from views.entries import Entries
 
 class Manager:
     def add_player():
@@ -12,4 +12,4 @@ class Manager:
  
 
 
-
+Manager.add_player()
