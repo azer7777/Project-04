@@ -1,4 +1,4 @@
-from models.player import Player
+from dodels.player import Player
 from views.entries import Entries
 
 class Manager:
