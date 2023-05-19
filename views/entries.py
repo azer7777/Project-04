@@ -3,7 +3,7 @@ class Entries:
         family_name = input("""Enter family name :""")
         first_name = input("""Enter first name :""")
         date_of_birth = input("""Enter date of birth :""") 
-        return family_name,first_name,date_of_birth
+        return (family_name, first_name, date_of_birth)
     
     def get_tournament_entries():
         name = input("Enter tournament name :")

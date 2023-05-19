@@ -1,5 +1,4 @@
-
-
+from controllers.manage_app import Manager
 class Menu:
     def main_menu():
         print()
@@ -7,7 +6,7 @@ class Menu:
         print("""               Main menu                """)
         print()
         option = int(input("""
-                          1 : Player             2 : Tournament      
+                          1 : Player_menu             2 : Tournament_menu      
                                Enter a matching number to choose an option : """))
         if option == 1:
             Menu.player_menu() 
