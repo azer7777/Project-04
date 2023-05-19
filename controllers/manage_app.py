@@ -1,4 +1,4 @@
-from model.player import Player
+from models.player import Player
 from views.entries import Entries
 
 class Manager:
