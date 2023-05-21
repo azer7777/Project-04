@@ -1,4 +1,4 @@
-import json
+
 
 class Player:
     def __init__(self, family_name, first_name, date_of_birth):
@@ -10,17 +10,10 @@ class Player:
     def create_registred_players_list(self, registred_players_list):
         registred_players_list.append(self.player_name)
         return registred_players_list
-    
-    
-        
-    def load_player_to_json_file(self):
-        player_info_serialized = [{"Family_name": self.family_name, 
+            
+    def save_player_to_json_file(self):
+        player_info_serialized = {"Family_name": self.family_name, 
                                  "First_name": self.first_name, 
-                                 "Date_of_birth": self.date_of_birth}]
-        filename = "players_data"
-        with open(filename, 'w') as json_file:
-            json.dump(player_info_serialized, json_file, 
-                        indent=4,  
-                        separators=(',',': '))
-        return
+                                 "Date_of_birth": self.date_of_birth}
+        return player_info_serialized
             
