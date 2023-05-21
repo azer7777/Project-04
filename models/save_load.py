@@ -1,7 +1,6 @@
 import json
 from os import path
-
-
+import pandas
 class SaveLoad():
     def save(info_serialized, file_name=""):
         if not path.exists(file_name):
@@ -25,7 +24,7 @@ class SaveLoad():
         print("""
                   All regestred players :
                                           """)
-        for i in report:
-            print(i)
+        print(pandas.DataFrame(report))
+
         return
         

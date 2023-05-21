@@ -1,8 +1,17 @@
+import datetime
 class Entries:
     def get_player_entries():
         family_name = input("""Enter family name :""")
         first_name = input("""Enter first name :""")
-        date_of_birth = input("""Enter date of birth :""") 
+        date_of_birth = input("""Enter date of birth (format "DD/MM/YYYY") :""") 
+        while True:
+            try:
+                date_of_birth != (datetime.datetime.strptime(date_of_birth, "%d/%m/%Y")).date()
+                break 
+            except(ValueError):           
+                print("Inccorect date format !")
+                print("Try again")
+                date_of_birth = input("""Enter date of birth (format "DD/MM/YYYY") :""")                         
         return (family_name, first_name, date_of_birth)
     
     def get_tournament_entries():
