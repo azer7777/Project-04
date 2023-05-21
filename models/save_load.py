@@ -10,7 +10,7 @@ class SaveLoad():
                             indent=4,  
                             separators=(',',': '))
         else:       
-            with open (file_name) as fp:
+            with open(file_name) as fp:
                 data_list = json.load(fp)
             data_list.append(info_serialized)    
             with open(file_name, 'w') as json_file:
@@ -18,3 +18,14 @@ class SaveLoad():
                           indent=4,
                           separators=(',',': '))
         return    
+    
+    def load(file_name=""):
+        with open(file_name) as fp:
+            report = json.load(fp)
+        print("""
+                  All regestred players :
+                                          """)
+        for i in report:
+            print(i)
+        return
+        

@@ -5,11 +5,14 @@ from views.entries import Entries
 class Manager:
     def add_player():
         player_entries = Entries.get_player_entries()
-        player_info_serialized = Player(player_entries[0], player_entries[1], player_entries[2]).save_player_to_json_file()
-        SaveLoad.save(player_info_serialized, file_name="players_data")
+        serialized_data = Player(player_entries[0], player_entries[1], player_entries[2]).serialize_player_data()
+        SaveLoad.save(serialized_data, file_name="players_data")
+        print("""    Player successfully added""")
         return
-        
-        
+    
+    def display_all_players():
+        SaveLoad.load(file_name="players_data")    
+        return
     
 
  

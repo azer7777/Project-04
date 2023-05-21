@@ -18,13 +18,15 @@ class Tournament:
     
         
     def get_tournament_info_serialized(self):
-        tournament_info_serialized = [{"Name": self.name, 
-                                      "Place": self.place, 
-                                      "Start_date": self.star_date,
-                                      "End_date": self.end_date,
-                                      "Current_round_nb": self.current_round_nb, 
-                                      "Rounds_list": self.rounds_list, 
-                                      "Registred_players_list": self.registred_players_list, 
-                                      "Description": self.description, 
-                                      "Nb_of_rounds": self.nb_of_rounds}]    
+        tournament_info_serialized = {
+                                         "Name": self.name, 
+                                         "Place": self.place, 
+                                         "Start_date": self.star_date,
+                                         "End_date": self.end_date,
+                                         "Current_round_nb": self.current_round_nb, 
+                                         "Rounds_list": self.rounds_list, 
+                                         "Registred_players_list": self.registred_players_list, 
+                                         "Description": self.description, 
+                                         "Nb_of_rounds": self.nb_of_rounds
+                                     }    
         return tournament_info_serialized

@@ -11,9 +11,11 @@ class Player:
         registred_players_list.append(self.player_name)
         return registred_players_list
             
-    def save_player_to_json_file(self):
-        player_info_serialized = {"Family_name": self.family_name, 
-                                 "First_name": self.first_name, 
-                                 "Date_of_birth": self.date_of_birth}
-        return player_info_serialized
+    def serialize_player_data(self):
+        serialized_data =   {
+                                "Family_name": self.family_name, 
+                                "First_name": self.first_name, 
+                                "Date_of_birth": self.date_of_birth
+                            }
+        return serialized_data
             

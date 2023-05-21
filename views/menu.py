@@ -27,9 +27,10 @@ class Menu:
                                Enter a matching number to choose an option : """))
         if option == 1:
             Manager.add_player()
-            print("""    Player successfully added""")
+            Menu.player_menu()
         elif option == 2:
-            pass
+            Manager.display_all_players()
+            Menu.player_menu()
         elif option == 3:
             Menu.main_menu()
         else:
