@@ -24,7 +24,7 @@ class SaveLoad():
         print("""
                   All regestred players :
                                           """)
-        print(pandas.DataFrame(report))
+        print(pandas.DataFrame(report).sort_values("Family_name"))
 
         return
         
