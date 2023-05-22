@@ -55,7 +55,7 @@ class Menu:
                 name = input("""Enter a tournament name : """)
                 # to do : display the selected tournament from the json_tournament_data_base
                 option = int(input("""
-                           1 : Modifie the tournament            2 : Display the registred players
+                           1 : Modifie the tournament            2 : Display the players
                            3 : Display all rounds and matches    4 : Main menu      
                                Enter a matching number to choose an option : """))
                 if option == 1:
