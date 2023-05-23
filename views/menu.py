@@ -1,4 +1,4 @@
-from controllers.manage_app import Manager
+from controllers.manager import Manager
 class Menu:
     def main_menu():
         print()
@@ -47,8 +47,8 @@ class Menu:
                           3 : Select a tournament         4 : Main menu
                                Enter a matching number to choose an option : """))
         if option == 1:
-            
-            print("""    Tounament succesfully created""")
+            Manager.create_tournament()
+            Menu.tournament_menu()    
         elif option == 2:
             pass
         elif option == 3:
