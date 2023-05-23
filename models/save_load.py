@@ -27,6 +27,16 @@ class SaveLoad():
                                           """.format(subject))
         print(pandas.DataFrame(report).sort_values("Family_name"))
         return
+    
+    def load_tournaments(file_name=""):
+        with open("data/" + file_name) as fp:
+            report = json.load(fp)
+        subject = (file_name).replace("_data", "")
+        print("""
+                  All regestred {} :
+                                          """.format(subject))
+        print(pandas.DataFrame(report))
+        return
 
     def load_only(file_name=""):
         with open("data/" + file_name) as fp:

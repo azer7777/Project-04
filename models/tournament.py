@@ -23,8 +23,8 @@ class Tournament:
         SaveLoad.load(file_name="players_data")
         tournament_players_list = []
         for loop in range(nb_of_players):
-            selection_index = input("Select a player from  the above list by entring a matching number : ")
-            user_selection = SaveLoad.load_only(file_name="players_data")[selection_index]
+            selection_index = int(input("Select a player from  the above list by entring a matching number : "))
+            user_selection = (SaveLoad.load_only(file_name="players_data"))[selection_index]
             tournament_players_list.append(user_selection)            
         return tournament_players_list
     
@@ -34,9 +34,8 @@ class Tournament:
         
     def get_tournament_info_serialized(self):
         tournament_info_serialized = {
-                                         "Name": self.name, 
+                                         "Tournament_name": self.name, 
                                          "Place": self.place,
-                                         "Tournament_players_list": self.tournament_players_list,
                                          "Nb_of_rounds": self.nb_of_rounds,
                                          "Current_round_nb": self.current_round_nb,
                                          "Rounds_list": self.rounds_list,
@@ -45,3 +44,10 @@ class Tournament:
                                          "End_date": self.end_date                                                                                   
                                      }    
         return tournament_info_serialized
+    
+    def get_tournament_players_serialized(self):
+        tournament_players_serialized = {
+                                         "Tournament_name": self.name, 
+                                         "Tournament_players_list": self.tournament_players_list                                                                                 
+                                        }    
+        return tournament_players_serialized

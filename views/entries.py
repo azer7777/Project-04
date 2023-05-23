@@ -13,10 +13,11 @@ class Entries:
         place = input("Enter tournament place :")
         tournament_players_list = Tournament.create_tournament_players_list()
         current_round_nb = int(input("Enter current round number :"))
+        round_list = "to do"
         description = input("Enter description :")
         start_date = input("Enter tournament start date :")
         end_date = input("Enter tournament end date (if in progress press Entrer) :")        
-        return (name, place, start_date, end_date, current_round_nb, tournament_players_list, description)
+        return (name, place, tournament_players_list, start_date, end_date, current_round_nb, round_list, description)
     
     def check_date_format(subject):
         date = input(("""Enter {} (format "DD/MM/YYYY") :""").format(subject))

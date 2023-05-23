@@ -50,7 +50,8 @@ class Menu:
             Manager.create_tournament()
             Menu.tournament_menu()    
         elif option == 2:
-            pass
+            Manager.display_all_tournaments()
+            Menu.tournament_menu()
         elif option == 3:
                 name = input("""Enter a tournament name : """)
                 # to do : display the selected tournament from the json_tournament_data_base
