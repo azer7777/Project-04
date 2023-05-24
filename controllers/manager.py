@@ -6,12 +6,12 @@ class Manager:
     def add_player():
         player_entries = Entries.get_player_entries()
         serialized_data = Player(player_entries[0], player_entries[1], player_entries[2]).serialize_player_data()
-        SaveLoad.save(serialized_data, file_name="players_data")
+        SaveLoad.save(serialized_data, file_name="registred_players")
         print("""    Player successfully added""")
         return
     
     def display_all_players():
-        SaveLoad.load(file_name="players_data")    
+        SaveLoad.load(file_name="registred_players")    
         return
     
     def create_tournament():
@@ -19,14 +19,24 @@ class Manager:
         tournament__init__ = Tournament(tournament_entries[0], tournament_entries[1], tournament_entries[2], tournament_entries[3], tournament_entries[4], tournament_entries[5], tournament_entries[6], tournament_entries[7])
         tournament_info_serialized = tournament__init__.get_tournament_info_serialized()
         tournament_players_serialized = (tournament__init__.get_tournament_players_serialized())
-        SaveLoad.save(tournament_info_serialized, file_name="tournament_info_data")
-        SaveLoad.save(tournament_players_serialized, file_name="tournament_players_data")
+        SaveLoad.save(tournament_info_serialized, file_name="tournaments_info")
+        SaveLoad.save(tournament_players_serialized, file_name=("tournaments_players/" + tournament_entries[0]))
         print("""    Toutnament successfully added""")
         return        
     
     def display_all_tournaments():
-        SaveLoad.load_tournaments(file_name="tournament_info_data")
+        SaveLoad.load(file_name="tournaments_info")
         return
+    
+    def select_a_tournament():
+        Manager.display_all_tournaments()
+        tournament_index = print(int(input("Select a tournament from  the above list by entring a matching number : ")))
+        SaveLoad.load_only(file_name="tournaments_info")[tournament_index]
+        return
+    
+    def display_tournament_players():
+        SaveLoad.load()
+        
  
 
 

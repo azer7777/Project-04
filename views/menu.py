@@ -53,11 +53,10 @@ class Menu:
             Manager.display_all_tournaments()
             Menu.tournament_menu()
         elif option == 3:
-                name = input("""Enter a tournament name : """)
-                # to do : display the selected tournament from the json_tournament_data_base
+                Manager.select_a_tournament()
                 option = int(input("""
                            1 : Modifie the tournament            2 : Display the players
-                           3 : Display all rounds and matches    4 : Main menu      
+                           3 : Display all rounds and matches    4 : Tournament menu      
                                Enter a matching number to choose an option : """))
                 if option == 1:
                     pass
@@ -66,7 +65,7 @@ class Menu:
                 elif option == 3:
                     pass
                 elif option == 4:
-                    Menu.main_menu()
+                    Menu.tournament_menu()
                 else:
                     print("You can only enter a matching number !")
                     Menu.tournament_menu()

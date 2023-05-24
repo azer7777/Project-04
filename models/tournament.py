@@ -20,13 +20,12 @@ class Tournament:
             print("Must be even !")
             print("Try again")
             nb_of_players = int(input("""Enter the number of players (must be even) : """))
-        SaveLoad.load(file_name="players_data")
+        SaveLoad.load(file_name="registred_players")
         tournament_players_list = []
         for loop in range(nb_of_players):
             selection_index = int(input("Select a player from  the above list by entring a matching number : "))
-            user_selection = (SaveLoad.load_only(file_name="players_data"))[selection_index]
-            tournament_players_list.append(user_selection)
-                        
+            user_selection = (SaveLoad.load_only(file_name="registred_players"))[selection_index]
+            tournament_players_list.append(user_selection)                        
         return tournament_players_list
     
     def shuffle_tournament_players_randomly(self):

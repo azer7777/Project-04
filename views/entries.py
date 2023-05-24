@@ -15,8 +15,8 @@ class Entries:
         current_round_nb = int(input("Enter current round number :"))
         round_list = "to do"
         description = input("Enter description :")
-        start_date = input("Enter tournament start date :")
-        end_date = input("Enter tournament end date (if in progress press Entrer) :")        
+        start_date = Entries.check_date_format("tournament start date")        
+        end_date = Entries.check_date_format("tournament end date or press Entrer if in progress")                
         return (name, place, tournament_players_list, start_date, end_date, current_round_nb, round_list, description)
     
     def check_date_format(subject):
