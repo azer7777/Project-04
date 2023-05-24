@@ -1,9 +1,9 @@
 import pandas
 
 a = [
-    {
+    
 
-        "Tournament_players_list": [
+         [
             {
                 "Family_name": "sdgrfgf",
                 "First_name": "dgrdg",
@@ -15,7 +15,7 @@ a = [
                 "Date_of_birth": "28/02/2004"
             }
         ]
-    }
+    
 ]
 
 
