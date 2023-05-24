@@ -18,7 +18,7 @@ class Manager:
         tournament_entries = Entries.get_tournament_entries()
         tournament__init__ = Tournament(tournament_entries[0], tournament_entries[1], tournament_entries[2], tournament_entries[3], tournament_entries[4], tournament_entries[5], tournament_entries[6], tournament_entries[7])
         tournament_info_serialized = tournament__init__.get_tournament_info_serialized()
-        tournament_players_serialized = tournament__init__.get_tournament_players_serialized()
+        tournament_players_serialized = (tournament__init__.get_tournament_players_serialized())
         SaveLoad.save(tournament_info_serialized, file_name="tournament_info_data")
         SaveLoad.save(tournament_players_serialized, file_name="tournament_players_data")
         print("""    Toutnament successfully added""")

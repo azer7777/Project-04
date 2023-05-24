@@ -18,14 +18,15 @@ class Tournament:
         nb_of_players = int(input("""Enter the number of players (must be even) : """))
         while (nb_of_players % 2) != 0:
             print("Must be even !")
-            print("Try aigain")
-            nb_of_players 
+            print("Try again")
+            nb_of_players = int(input("""Enter the number of players (must be even) : """))
         SaveLoad.load(file_name="players_data")
         tournament_players_list = []
         for loop in range(nb_of_players):
             selection_index = int(input("Select a player from  the above list by entring a matching number : "))
             user_selection = (SaveLoad.load_only(file_name="players_data"))[selection_index]
-            tournament_players_list.append(user_selection)            
+            tournament_players_list.append(user_selection)
+                        
         return tournament_players_list
     
     def shuffle_tournament_players_randomly(self):
@@ -46,8 +47,6 @@ class Tournament:
         return tournament_info_serialized
     
     def get_tournament_players_serialized(self):
-        tournament_players_serialized = {
-                                         "Tournament_name": self.name, 
-                                         "Tournament_players_list": self.tournament_players_list                                                                                 
-                                        }    
+        tournament_players_serialized = self.tournament_players_list                                                                                 
+    
         return tournament_players_serialized
