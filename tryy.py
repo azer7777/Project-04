@@ -43,8 +43,24 @@ a = [
     }
 ]
     
-name = "thtrhrfth"
-res = next((sub for sub in a if sub['Tournament_name'] == name), None)
-print(pandas.DataFrame([res]))
+e = [
+    [
+        {
+            "Family_name": "iklki",
+            "First_name": "ukiuyhkiuyhk",
+            "Date_of_birth": "02/08/2004"
+        },
+        {
+            "Family_name": "dht",
+            "First_name": "fthj",
+            "Date_of_birth": "02/02/2004"
+        }
+    ]
+]
+
+r = str(e)[1:-1]
+res = ', '.join(map(str, e))
+print(pandas.DataFrame(res))
+
 
 

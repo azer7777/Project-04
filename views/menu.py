@@ -53,16 +53,19 @@ class Menu:
             Manager.display_all_tournaments()
             Menu.tournament_menu()
         elif option == 3:
-                Manager.display_selected_tournament()
-                option = int(input("""
-                           1 : Modifie the tournament            2 : Display the players
-                           3 : Display all rounds and matches    4 : Tournament menu      
-                               Enter a matching number to choose an option : """))
+                tournament_name = Manager.display_selected_tournament()
+                if tournament_name == None:
+                    Menu.tournament_menu()
+                else:                    
+                    option = int(input("""
+                               1 : Modifie the tournament            2 : Display the players
+                               3 : Display all rounds and matches    4 : Tournament menu      
+                                   Enter a matching number to choose an option : """))
                 if option == 1:
                     pass
                 elif option == 2:
-                    Manager.display_tournament_players()
-                    Menu.tournament_menu
+                    Manager.display_tournament_players(tournament_name)
+                    Menu.tournament_menu()
                 elif option == 3:
                     pass
                 elif option == 4:

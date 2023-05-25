@@ -13,7 +13,7 @@ class Manager:
         return
     
     def display_all_players():
-        SaveLoad.load(file_name="registred_players")    
+        SaveLoad.load(file_name="registred_players", title="regestred players")    
         return
     
     def create_tournament():
@@ -22,41 +22,30 @@ class Manager:
         tournament_info_serialized = tournament__init__.get_tournament_info_serialized()
         tournament_players_serialized = (tournament__init__.get_tournament_players_serialized())
         SaveLoad.save(tournament_info_serialized, file_name="tournaments_info")
-        SaveLoad.save(tournament_players_serialized, file_name=("tournaments_players/" + tournament_entries[0]))
+        SaveLoad.save_tournament_players(tournament_players_serialized, file_name=("tournaments_players/" + tournament_entries[0]))
         print("""    Tournament successfully added""")
         return        
     
     def display_all_tournaments():
-        SaveLoad.load(file_name="tournaments_info")
+        SaveLoad.load(file_name="tournaments_info", title="tournaments")
         return
-    
-    def try_select_tournament():
-        Manager.display_all_tournaments()
-        tournament_index = int(input("Select a tournament from  the above list by entring a matching number : "))
-        selected_tournament = SaveLoad.load_only(file_name="tournaments_info")[tournament_index]
-        print("""       
-                       Selected tournament : 
-                                                    """)
-        print(pandas.DataFrame([selected_tournament]))
-        tournament_name = selected_tournament["Tournament_name"]
-        return tournament_name
-    
-    def select_tournament():
+        
+    def display_selected_tournament():
         tournament_name = Entries.get_selected_tournament_name()
         all_tournament = SaveLoad.load_only(file_name="tournaments_info")
         selection = next((sub for sub in all_tournament if sub['Tournament_name'] == tournament_name), None)
-        return (tournament_name, selection)
+        if selection == None:
+            print("Invalid tournament name !")
+            tournament_name = None
+        else:
+            print("""       
+                           Selected tournament : 
+                                                     """)
+            print(pandas.DataFrame([selection]))
+        return tournament_name
     
-    def display_selected_tournament():
-        selection = (Manager.select_tournament())[1]
-        print("""       
-                       Selected tournament : 
-                                                    """)
-        print(pandas.DataFrame([selection]))
-    
-    def display_tournament_players():
-        tournament_name = (Manager.select_tournament())[0]
-        SaveLoad.load(file_name=("tournaments_players/" + tournament_name))
+    def display_tournament_players(tournament_name):
+        SaveLoad.load(file_name=("tournaments_players/" + tournament_name), title="tournament players")
         return
     
   
