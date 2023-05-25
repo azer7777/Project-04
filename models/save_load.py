@@ -21,9 +21,9 @@ class SaveLoad():
     def load(file_name=""):
         with open("database/" + file_name) as fp:
             report = json.load(fp)
-        subject = (file_name).replace("registred_", "").replace("_info", "")
+        subject = (file_name).replace("_", " ").replace("info", "")
         print("""
-                  All regestred {} :
+                         All {} :
                                           """.format(subject))
         if "Family_name" in pandas.DataFrame(report):
             print(pandas.DataFrame(report).sort_values("Family_name"))
