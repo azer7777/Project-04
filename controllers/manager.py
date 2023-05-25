@@ -1,3 +1,4 @@
+import pandas
 from models.player import Player
 from models.save_load import SaveLoad
 from views.entries import Entries
@@ -21,7 +22,7 @@ class Manager:
         tournament_players_serialized = (tournament__init__.get_tournament_players_serialized())
         SaveLoad.save(tournament_info_serialized, file_name="tournaments_info")
         SaveLoad.save(tournament_players_serialized, file_name=("tournaments_players/" + tournament_entries[0]))
-        print("""    Toutnament successfully added""")
+        print("""    Tournament successfully added""")
         return        
     
     def display_all_tournaments():
@@ -30,9 +31,14 @@ class Manager:
     
     def select_a_tournament():
         Manager.display_all_tournaments()
-        tournament_index = print(int(input("Select a tournament from  the above list by entring a matching number : ")))
-        SaveLoad.load_only(file_name="tournaments_info")[tournament_index]
-        return
+        tournament_index = int(input("Select a tournament from  the above list by entring a matching number : "))
+        selected_tournament = SaveLoad.load_only(file_name="tournaments_info")[tournament_index]
+        print("""       
+                       Selected tournament : 
+                                                    """)
+        print(pandas.DataFrame([selected_tournament]))
+        filename = selected_tournament["Tournament_name"]
+        return filename
     
     def display_tournament_players():
         SaveLoad.load()
