@@ -25,7 +25,8 @@ class Tournament:
         for loop in range(nb_of_players):
             selection_index = int(input("Select a player from  the above list by entring a matching number : "))
             user_selection = (SaveLoad.load_only(file_name="registred_players"))[selection_index]
-            tournament_players_list.append(user_selection)                        
+            tournament_players_list.append(user_selection)
+            print("   Player selected")                        
         return tournament_players_list
     
     def shuffle_tournament_players_randomly(self):

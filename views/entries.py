@@ -16,20 +16,26 @@ class Entries:
         round_list = "to do"
         description = input("Enter description :")
         start_date = Entries.check_date_format("tournament start date")        
-        end_date = Entries.check_date_format("tournament end date or press Entrer if in progress")                
+        end_date = Entries.check_date_format("tournament end date or press Enter if in progress")                
         return (name, place, tournament_players_list, start_date, end_date, current_round_nb, round_list, description)
     
     def check_date_format(subject):
-        date = input(("""Enter {} (format "DD/MM/YYYY") :""").format(subject))
-        while True:
-            try:
-                date == (datetime.datetime.strptime(date, "%d/%m/%Y")).date()
-                break 
-            except(ValueError):           
-                print("Inccorect date format !")
-                print("Try again")
-                date = input(("""Enter {} (format "DD/MM/YYYY") :""").format(subject))
+        date = input(("""Enter {} (format "DD/MM/YYYY") :""").format(subject))        
+        if date != "":
+            while True:
+                try:
+                    date == (datetime.datetime.strptime(date, "%d/%m/%Y")).date()
+                    break 
+                except(ValueError):           
+                    print("Inccorect date format !")
+                    print("Try again")
+                    date = input(("""Enter {} (format "DD/MM/YYYY") :""").format(subject))
         return date
+    
+    def get_selected_tournament_name():
+        tournament_name = input("Select a tournament by entering its name :")
+        return tournament_name
+
 
 
 

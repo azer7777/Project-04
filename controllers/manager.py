@@ -3,6 +3,7 @@ from models.player import Player
 from models.save_load import SaveLoad
 from views.entries import Entries
 from models.tournament import Tournament
+
 class Manager:
     def add_player():
         player_entries = Entries.get_player_entries()
@@ -29,7 +30,7 @@ class Manager:
         SaveLoad.load(file_name="tournaments_info")
         return
     
-    def select_a_tournament():
+    def try_select_tournament():
         Manager.display_all_tournaments()
         tournament_index = int(input("Select a tournament from  the above list by entring a matching number : "))
         selected_tournament = SaveLoad.load_only(file_name="tournaments_info")[tournament_index]
@@ -40,9 +41,25 @@ class Manager:
         tournament_name = selected_tournament["Tournament_name"]
         return tournament_name
     
+    def select_tournament():
+        tournament_name = Entries.get_selected_tournament_name()
+        all_tournament = SaveLoad.load_only(file_name="tournaments_info")
+        selection = next((sub for sub in all_tournament if sub['Tournament_name'] == tournament_name), None)
+        return (tournament_name, selection)
+    
+    def display_selected_tournament():
+        selection = (Manager.select_tournament())[1]
+        print("""       
+                       Selected tournament : 
+                                                    """)
+        print(pandas.DataFrame([selection]))
+    
     def display_tournament_players():
-        tournament_name = Manager.select_a_tournament()
+        tournament_name = (Manager.select_tournament())[0]
         SaveLoad.load(file_name=("tournaments_players/" + tournament_name))
+        return
+    
+  
         
  
 
