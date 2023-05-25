@@ -61,7 +61,8 @@ class Menu:
                 if option == 1:
                     pass
                 elif option == 2:
-                    pass
+                    Manager.display_tournament_players()
+                    Menu.tournament_menu
                 elif option == 3:
                     pass
                 elif option == 4:

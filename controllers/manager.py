@@ -37,11 +37,12 @@ class Manager:
                        Selected tournament : 
                                                     """)
         print(pandas.DataFrame([selected_tournament]))
-        filename = selected_tournament["Tournament_name"]
-        return filename
+        tournament_name = selected_tournament["Tournament_name"]
+        return tournament_name
     
     def display_tournament_players():
-        SaveLoad.load()
+        tournament_name = Manager.select_a_tournament()
+        SaveLoad.load(file_name=("tournaments_players/" + tournament_name))
         
  
 
