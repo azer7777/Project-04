@@ -8,9 +8,9 @@ class Matches:
         matches_list.append(self.match)
         return matches_list        
                         
-    def get_match_info_serialized(self):
-        match_info_serialized = {"Match": self.match}
-        return match_info_serialized
+    def get_match_serialized(self):
+        match_serialized = {"Match": self.match}
+        return match_serialized
     
 
             
