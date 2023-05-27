@@ -3,6 +3,8 @@ from models.player import Player
 from models.save_load import SaveLoad
 from views.entries import Entries
 from models.tournament import Tournament
+from models.rounds import Rounds
+from models.match import Matches
 
 class Manager:
     def add_player():
@@ -48,6 +50,12 @@ class Manager:
         SaveLoad.load(file_name=("tournaments_players/" + tournament_name), title="tournament players")
         return
     
+    
+    def create_rounds():
+        match__init__ = Matches("", "", "", "")
+        match_list = Matches.create_matches_list("")
+        
+        
   
         
  
