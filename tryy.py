@@ -1,66 +1,34 @@
 import pandas
 
-a = [
-    {
-        "Tournament_name": "sthtrh",
-        "Place": "htrhth",
-        "Nb_of_rounds": 4,
-        "Current_round_nb": 1,
-        "Rounds_list": "to do",
-        "Description": "rhtrhtrh",
-        "Start_date": "02/02/2004",
-        "End_date": ""
-    },
-    {
-        "Tournament_name": "sthsfh",
-        "Place": "fshftgh",
-        "Nb_of_rounds": 4,
-        "Current_round_nb": 1,
-        "Rounds_list": "to do",
-        "Description": "shthh",
-        "Start_date": "02/02/01",
-        "End_date": ""
-    },
-    {
-        "Tournament_name": "drgdrg",
-        "Place": "dgg",
-        "Nb_of_rounds": 4,
-        "Current_round_nb": 1,
-        "Rounds_list": "to do",
-        "Description": "drg",
-        "Start_date": "02/02/2001",
-        "End_date": "04/01/2003"
-    },
-    {
-        "Tournament_name": "thtrhrfth",
-        "Place": "fdhggfh",
-        "Nb_of_rounds": 4,
-        "Current_round_nb": 1,
-        "Rounds_list": "to do",
-        "Description": "fbgtgh",
-        "Start_date": "02/04/2007",
-        "End_date": ""
-    }
-]
-    
-e = [
-    [
-        {
-            "Family_name": "iklki",
-            "First_name": "ukiuyhkiuyhk",
-            "Date_of_birth": "02/08/2004"
-        },
-        {
-            "Family_name": "dht",
-            "First_name": "fthj",
-            "Date_of_birth": "02/02/2004"
-        }
+class Matches:
+    def __init__(self, player_1, player_2, score_1, score_2):
+        self.player_01 = [player_1, score_1]
+        self.player_02 = [player_2, score_2]
+        self.match = (self.player_01, self.player_02)
+        
+    def create_matches_list(self, matches_list):
+        matches_list.append(self.match)
+        return matches_list 
+
+
+
+
+
+t =  [ 
+       { "player 1": ["player_1", 1],
+         "player 2": ["player_2", 2]
+        
+       }
     ]
-]
+        
+round_name = "round_name" + "           "
+player_01 = ["player_1", 2]
+player_02 = ["player_2", 0]
+match = (player_01, player_02)
 
-r = str(e)[1:-1]
-res = ', '.join(map(str, e))
-print(pandas.DataFrame(res))
+roundi = [{round_name: [match]}]
 
+
+print(pandas.DataFrame(roundi))
 
 
