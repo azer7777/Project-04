@@ -36,6 +36,13 @@ class Entries:
         tournament_name = input("Select a tournament by entering its name :")
         return tournament_name
     
+    def get_winner_name():
+        winner_name = input(""" Enter winner name : """)
+        return winner_name
+        
+        
+        
+    
 
 
 

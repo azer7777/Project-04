@@ -1,6 +1,6 @@
 
 from models.save_load import SaveLoad
-import random
+
 
 class Tournament:
     def __init__(self, name, place, tournament_players_list, start_date, end_date, current_round_nb, description,nb_of_rounds=4):
@@ -28,17 +28,6 @@ class Tournament:
             print("   Player selected")
         tournament_players_list                           
         return tournament_players_list
-    
-    def shuffle_tournament_players_randomly(self):
-        shuffled_players_list = random.shuffle(self.tournament_players_list)
-        return shuffled_players_list
-    
-    def get_pairs(current_round_nb):
-        if current_round_nb == 1:
-            Tournament.shuffle_tournament_players_randomly()
-        else:
-            pass
-        return
         
     def get_tournament_info_serialized(self):
         tournament_info_serialized = {

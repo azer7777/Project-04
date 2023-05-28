@@ -4,7 +4,7 @@ class Rounds:
     def __init__(self, current_round_nb, match):
         self.round_name = "Round" + " " + str(current_round_nb) + ":"
         self.current_round_nb = current_round_nb
-        date_time =  time.strftime("%d %m %Y %H:%M")
+        date_time = time.strftime("%d %m %Y %H:%M")
         if self.current_round_nb == 1:
             self.start_date_time = date_time            
         elif self.current_round_nb == 4:
