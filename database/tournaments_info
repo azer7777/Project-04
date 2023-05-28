@@ -1,82 +1,11 @@
 [
     {
-        "Tournament_name": "sthtrh",
-        "Place": "htrhth",
-        "Nb_of_rounds": 4,
-        "Current_round_nb": 1,
-        "Rounds_list": "to do",
-        "Description": "rhtrhtrh",
-        "Start_date": "02/02/2004",
-        "End_date": ""
-    },
-    {
-        "Tournament_name": "sthsfh",
-        "Place": "fshftgh",
-        "Nb_of_rounds": 4,
-        "Current_round_nb": 1,
-        "Rounds_list": "to do",
-        "Description": "shthh",
-        "Start_date": "02/02/01",
-        "End_date": ""
-    },
-    {
-        "Tournament_name": "drgdrg",
-        "Place": "dgg",
-        "Nb_of_rounds": 4,
-        "Current_round_nb": 1,
-        "Rounds_list": "to do",
-        "Description": "drg",
-        "Start_date": "02/02/2001",
-        "End_date": "04/01/2003"
-    },
-    {
-        "Tournament_name": "thtrhrfth",
-        "Place": "fdhggfh",
-        "Nb_of_rounds": 4,
-        "Current_round_nb": 1,
-        "Rounds_list": "to do",
-        "Description": "fbgtgh",
-        "Start_date": "02/04/2007",
-        "End_date": ""
-    },
-    {
         "Tournament_name": "aaaa",
-        "Place": "fghgfh",
+        "Place": "sgsrg",
         "Nb_of_rounds": 4,
         "Current_round_nb": 1,
-        "Rounds_list": "to do",
-        "Description": "stghh",
-        "Start_date": "02/08/2008",
-        "End_date": ""
-    },
-    {
-        "Tournament_name": "oooo",
-        "Place": "thgffh",
-        "Nb_of_rounds": 4,
-        "Current_round_nb": 1,
-        "Rounds_list": "to do",
-        "Description": "sthh",
-        "Start_date": "02/01/2001",
-        "End_date": ""
-    },
-    {
-        "Tournament_name": "iiii",
-        "Place": "dfghf",
-        "Nb_of_rounds": 4,
-        "Current_round_nb": 1,
-        "Rounds_list": "to do",
-        "Description": "dfhgt",
-        "Start_date": "02/08/2005",
-        "End_date": ""
-    },
-    {
-        "Tournament_name": "llll",
-        "Place": "dgdgh",
-        "Nb_of_rounds": 4,
-        "Current_round_nb": 1,
-        "Rounds_list": "to do",
-        "Description": "dhghf",
+        "Description": "qqzffq",
         "Start_date": "20/02/2002",
-        "End_date": ""
+        "End_date": "In progress"
     }
 ]

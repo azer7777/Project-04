@@ -32,8 +32,7 @@ class Manager:
         SaveLoad.load(file_name="tournaments_info", title="tournaments")
         return
         
-    def display_selected_tournament():
-        tournament_name = Entries.get_selected_tournament_name()
+    def select_tournament(tournament_name):
         all_tournament = SaveLoad.load_only(file_name="tournaments_info")
         selection = next((sub for sub in all_tournament if sub['Tournament_name'] == tournament_name), None)
         if selection == None:

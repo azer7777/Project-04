@@ -1,4 +1,6 @@
 from controllers.manager import Manager
+from views.entries import Entries
+
 class Menu:
     def main_menu():
         print()
@@ -53,8 +55,9 @@ class Menu:
             Manager.display_all_tournaments()
             Menu.tournament_menu()
         elif option == 3:
-                tournament_name = Manager.display_selected_tournament()
-                if tournament_name == None:
+                tournament_name = Entries.get_selected_tournament_name()
+                select_tournament = Manager.select_tournament(tournament_name)
+                if select_tournament == None:
                     Menu.tournament_menu()
                 else:                    
                     option = int(input("""
