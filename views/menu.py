@@ -66,7 +66,7 @@ class Menu:
                                    Enter a matching number to choose an option : """))
                 if option == 1:
                     option = int(input("""
-                               1 : End current round            2 : Create a round
+                               1 : Create a round            2 : End current round
                                3 : Tournament menu          
                                    Enter a matching number to choose an option : """))
                     if option == 1:
