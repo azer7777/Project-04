@@ -53,8 +53,8 @@ class Manager:
         SaveLoad.load(file_name=("tournaments_players/" + tournament_name), title="tournament players")
         return
     
-    def create_round(tournament_name, current_round_nb, score_1, score_2, winner_name):
-        match_list = Pair.get_pairs(tournament_name, current_round_nb, score_1, score_2, winner_name)       
+    def create_round(tournament_name, current_round_nb, score_1, score_2,):
+        match_list = Pair.get_pairs(tournament_name, current_round_nb, score_1, score_2, winner_name="")       
         rounds__init__ = Rounds(current_round_nb, match_list)
         round_seiralized = rounds__init__.get_round_serialized()
         round_info_serialized = rounds__init__.get_round_info_serialized()
