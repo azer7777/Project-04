@@ -34,21 +34,26 @@ roundi = [{round_name: [match]}]
 
 
 
+g = []
+
 
 a = SaveLoad.load_only(file_name=("tournaments_players/" + "aaaa"))
 
-tournament_players = random.shuffle(a)
-
-e = (list(map((a[0]).get, ['Family_name'])))[0]
 
 
-g = []
-for i in a:
-        u = (list(map((a).get, ['Family_name'])))
-        g.append(u)
-    
-    
+index = 0
+for loop in range(int(len(SaveLoad.load_only(file_name=("tournaments_players/" + "zzzz"))) / 2)):
+    v = SaveLoad.load_only(file_name=("tournaments_players/" + "zzzz"))
+    e = (list(map((v[index]).get, ['Family_name'])))[0]
+    g.append(e)
+    index += 1
 
+
+
+random.shuffle(g)
 
 print(g)
+
+
+
 

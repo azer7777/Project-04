@@ -53,12 +53,8 @@ class Manager:
         return
     
     def create_round(tournament_name):
-        players = SaveLoad.load_only(file_name=("tournaments_players/" + tournament_name))
-        index = 0
-        player_1 = (list(map((players[index]).get, ['Family_name'])))[0]
-        index += 1
-        player_2 = (list(map((players[index]).get, ['Family_name'])))[0]
-        index += 1
+        
+
         matches__init__ = Matches(player_1, player_2, score_1, score_2)
         rounds__init__ = Rounds(current_round_nb, match)
         
