@@ -1,5 +1,6 @@
 import pandas
-import re
+import random
+from models.save_load import SaveLoad
 class Matches:
     def __init__(self, player_1, player_2, score_1, score_2):
         self.player_01 = [player_1, score_1]
@@ -20,6 +21,8 @@ t =  [
         
        }
     ]
+
+
         
 round_name = "round_name" + "           "
 player_01 = ["player_1", 2]
@@ -29,6 +32,23 @@ match = (player_01, player_02)
 roundi = [{round_name: [match]}]
 
 
-print(pandas.DataFrame(roundi))
 
+
+
+a = SaveLoad.load_only(file_name=("tournaments_players/" + "aaaa"))
+
+tournament_players = random.shuffle(a)
+
+e = (list(map((a[0]).get, ['Family_name'])))[0]
+
+
+g = []
+for i in a:
+        u = (list(map((a).get, ['Family_name'])))
+        g.append(u)
+    
+    
+
+
+print(g)
 
