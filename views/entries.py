@@ -13,7 +13,7 @@ class Entries:
         name = input("Enter tournament name :")
         place = input("Enter tournament place :")
         tournament_players_list = Tournament.create_tournament_players_list()
-        current_round_nb = 0
+        current_round_nb = 1
         description = input("Enter description :")
         start_date = Entries.check_date_format("tournament start date")        
         end_date = "In progress"                

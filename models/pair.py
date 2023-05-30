@@ -1,7 +1,8 @@
 import random
 from models.save_load import SaveLoad
-class Pair():
-    
+from models.match import Matches
+
+class Pair():    
     def load_tournament_players(tournament_name):
         players_list = []
         players_data = SaveLoad.load_only(file_name=("tournaments_players/" + tournament_name))
@@ -19,7 +20,7 @@ class Pair():
             pass
         return players_list
      
-    def get_score(current_round_nb, player_1, player_2, score_1, score_2, winner_name=""):
+    def get_score(current_round_nb, player_1, player_2, score_1, score_2, winner_name):
         if current_round_nb == 1:
             score_1 = 0
             score_2 = 0
@@ -30,16 +31,21 @@ class Pair():
         else:
             score_1 += 0.5
             score_2 += 0.5
-        return score_1, score_2
+        return player_1,player_2, score_1, score_2
         
-    def get_pairs(tournament_name, current_round_nb):
+    def get_pairs(tournament_name, current_round_nb, score_1, score_2, winner_name):
         players_list = Pair.load_tournament_players(tournament_name)
         Pair.shuffle_tournament_players(players_list, current_round_nb)
         index_1 = 0
         index_2 = 1
         for loop in range(int(len(players_list) / 2)):
-            for loop in range(2):
-                Pair.get_score(current_round_nb, players_list[index_1], players_list[index_2], score_1, score_2, winner_name="")
+                pair = Pair.get_score(current_round_nb, players_list[index_1], players_list[index_2],
+                               score_1, score_2, winner_name)
+                matches__init__ = Matches(pair[0], pair[1], pair[2], pair[3])
+                match_list = matches__init__.create_match_list()
+                index_1 += 1
+                index_2 += 1
+        return match_list
 
             
             
