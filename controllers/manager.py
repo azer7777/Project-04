@@ -4,7 +4,6 @@ from models.save_load import SaveLoad
 from views.entries import Entries
 from models.tournament import Tournament
 from models.rounds import Rounds
-from models.match import Matches
 from models.pair import Pair
 
 class Manager:
@@ -53,16 +52,22 @@ class Manager:
         SaveLoad.load(file_name=("tournaments_players/" + tournament_name), title="tournament players")
         return
     
-    def create_round(tournament_name, current_round_nb, score_1, score_2,):
-        match_list = Pair.get_pairs(tournament_name, current_round_nb, score_1, score_2, winner_name="")       
+    def create_round(tournament_name, current_round_nb=1, score_1=0, score_2=0,):
+        pair__init__ = Pair(tournament_name, current_round_nb, score_1, score_2, winner_name=None)
+        match_list = pair__init__.get_match_list()       
         rounds__init__ = Rounds(current_round_nb, match_list)
-        round_seiralized = rounds__init__.get_round_serialized()
+        round_maches_seiralized = rounds__init__.get_round_maches_serialized()
         round_info_serialized = rounds__init__.get_round_info_serialized()
+        SaveLoad.save(round_maches_seiralized, file_name=("rounds_matches/" + tournament_name))
+        SaveLoad.save(round_info_serialized, file_name=("rounds_info/" + tournament_name))
+        print("""    Round successfully added""")
+        return
+        
         
         
     def end_round(tournament_name, current_round_nb, score_1, score_2):
         winner_name = Entries.get_winner_name()
-        match_list = Pair.get_pairs(tournament_name, current_round_nb, score_1, score_2, winner_name)
+        
         
         
         

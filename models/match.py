@@ -8,7 +8,7 @@ class Matches:
         self.match = (self.player_01, self.player_02)
         
     def create_match_list(self):
-        matches_list.append(self.create_match)       
+        matches_list.append(self.match)       
         return matches_list
                
                         
