@@ -10,11 +10,15 @@ class Rounds:
             self.end_date_time = "In progress"
         elif self.current_round_nb == 4:
             self.end_date_time = date_time
+        else:
+            self.start_date_time = date_time
+            self.end_date_time = "In progress"
+            
         self.match_list = match_list
     
     def get_round_maches_serialized(self):
         round_name = self.round_name + "           "
-        round_serialized = {round_name: self.match_list}
+        round_serialized = self.match_list
         return round_serialized
                
     def get_round_info_serialized(self):

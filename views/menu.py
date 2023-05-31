@@ -88,7 +88,8 @@ class Menu:
                                3 : Display results               4 : Tournament menu      
                                    Enter a matching number to choose an option : """))
                     if option == 1:
-                        pass
+                        Manager.display_rounds(tournament_name)
+                        Menu.tournament_menu()
                     elif option == 2:
                         pass
                     elif option == 3:

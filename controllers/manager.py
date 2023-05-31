@@ -52,8 +52,8 @@ class Manager:
         SaveLoad.load(file_name=("tournaments_players/" + tournament_name), title="tournament players")
         return
     
-    def create_round(tournament_name, current_round_nb=1, score_1=0, score_2=0,):
-        pair__init__ = Pair(tournament_name, current_round_nb, score_1, score_2, winner_name=None)
+    def create_round(tournament_name, current_round_nb=1):
+        pair__init__ = Pair(tournament_name, current_round_nb, winner_name=None)
         match_list = pair__init__.get_match_list()       
         rounds__init__ = Rounds(current_round_nb, match_list)
         round_maches_seiralized = rounds__init__.get_round_maches_serialized()
@@ -68,6 +68,10 @@ class Manager:
     def end_round(tournament_name, current_round_nb, score_1, score_2):
         winner_name = Entries.get_winner_name()
         
+    def display_rounds(tournament_name):
+        SaveLoad.load(file_name=("rounds_info/" + tournament_name), title="Rounds")
+        return
+    
         
         
         
