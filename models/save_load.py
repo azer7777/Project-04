@@ -1,6 +1,7 @@
 import json
 from os import path
 import pandas
+
 class SaveLoad():
     def save(data_serialized, file_name=""):
         if not path.exists("database/" + file_name):
@@ -37,11 +38,24 @@ class SaveLoad():
             print(pandas.DataFrame(report))
         return
     
-
-
     def load_only(file_name=""):
         with open("database/" + file_name) as fp:
             report = json.load(fp)
         return report        
     
+    def selected_element(element_name, file_name=""):
+        all_tournament = SaveLoad.load_only(file_name)
+        selection = next((sub for sub in all_tournament if sub['Tournament_name'] == element_name), None)
+        return selection 
+    
+    def update(element_name, changes, file_name=""):
+        selected_element = SaveLoad.selected_element(element_name, file_name)
+        with open("database/" + file_name) as fp:
+            data_list = json.load(fp)
+        selection_index = data_list.index(selected_element)
+        data_list[selection_index].update(changes)    
+        with open("database/" + file_name, 'w') as json_file:
+            json.dump(data_list, json_file,
+                          indent=4,
+                          separators=(',',': '))
       

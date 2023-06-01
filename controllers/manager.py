@@ -1,4 +1,5 @@
 import pandas
+import time
 from models.player import Player
 from models.save_load import SaveLoad
 from views.entries import Entries
@@ -36,7 +37,7 @@ class Manager:
         return
         
     def select_tournament(tournament_name):
-        selection = Tournament.selected_tournament(tournament_name)
+        selection = SaveLoad.selected_element(tournament_name, file_name="tournaments_info")
         if selection == None:
             print("Invalid tournament name !")
             tournament_name = None
@@ -53,20 +54,28 @@ class Manager:
     
     def create_round(tournament_name):
         current_round_nb = Tournament.get_current_round_nb(tournament_name)
-        pair__init__ = Pair(tournament_name, current_round_nb, winner_name=None)
+        pair__init__ = Pair(tournament_name, current_round_nb)
         match_list = pair__init__.get_match_list()       
         rounds__init__ = Rounds(current_round_nb, match_list)
         round_maches_seiralized = rounds__init__.get_round_maches_serialized()
         round_info_serialized = rounds__init__.get_round_info_serialized()
         SaveLoad.save(round_maches_seiralized, file_name=("rounds_matches/" + tournament_name))
         SaveLoad.save(round_info_serialized, file_name=("rounds_info/" + tournament_name))
-        print("""    Round successfully added""")
+        tournament_changes = {'Current_round_nb': current_round_nb + 1}
+        SaveLoad.update(tournament_name, tournament_changes, file_name="tournaments_info")
+        print("""    Round successfully created
+                        Tournament updated       """)
         return
         
         
         
-    def end_round(tournament_name, current_round_nb):
+    def end_round(tournament_name):
         winner_name = Entries.get_winner_name()
+        current_round_nb = Tournament.get_current_round_nb(tournament_name)
+        if current_round_nb == 4:
+            end_time =  time.strftime("%d %m %Y %H:%M")
+            tournament_changes = {'End_date': end_time}
+            SaveLoad.update(tournament_name, tournament_changes, file_name="tournaments_info")
     
     
         

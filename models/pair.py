@@ -83,11 +83,11 @@ class Pair():
       
         
     def get_match_list(self):
-        if self.current_round_nb == 1:
-            pass
+        if self.current_round_nb == 0:
+            match_list = Pair.initial_match_list(self)
         else:
             pass                
-        return 
+        return match_list
 
 
                

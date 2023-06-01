@@ -1,4 +1,3 @@
-
 from models.save_load import SaveLoad
 
 
@@ -44,13 +43,8 @@ class Tournament:
     def get_tournament_players_serialized(self):
         tournament_players_serialized = self.tournament_players_list                                                                                 
         return tournament_players_serialized
-    
-    def selected_tournament(tournament_name):
-        all_tournament = SaveLoad.load_only(file_name="tournaments_info")
-        selection = next((sub for sub in all_tournament if sub['Tournament_name'] == tournament_name), None)
-        return selection 
-    
+       
     def get_current_round_nb(tournament_name):
-        selected_tournament = Tournament.selected_tournament(tournament_name)
+        selected_tournament = SaveLoad.selected_element(tournament_name, file_name="tournaments_info")
         current_round_nb = selected_tournament['Current_round_nb']
         return current_round_nb
