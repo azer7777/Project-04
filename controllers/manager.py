@@ -36,8 +36,7 @@ class Manager:
         return
         
     def select_tournament(tournament_name):
-        all_tournament = SaveLoad.load_only(file_name="tournaments_info")
-        selection = next((sub for sub in all_tournament if sub['Tournament_name'] == tournament_name), None)
+        selection = Tournament.selected_tournament(tournament_name)
         if selection == None:
             print("Invalid tournament name !")
             tournament_name = None
@@ -52,7 +51,8 @@ class Manager:
         SaveLoad.load(file_name=("tournaments_players/" + tournament_name), title="tournament players")
         return
     
-    def create_round(tournament_name, current_round_nb=1):
+    def create_round(tournament_name):
+        current_round_nb = Tournament.get_current_round_nb(tournament_name)
         pair__init__ = Pair(tournament_name, current_round_nb, winner_name=None)
         match_list = pair__init__.get_match_list()       
         rounds__init__ = Rounds(current_round_nb, match_list)
@@ -65,7 +65,7 @@ class Manager:
         
         
         
-    def end_round(tournament_name, current_round_nb, score_1, score_2):
+    def end_round(tournament_name, current_round_nb):
         winner_name = Entries.get_winner_name()
     
     

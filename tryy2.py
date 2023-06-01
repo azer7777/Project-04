@@ -1,4 +1,6 @@
 import pandas
+from models.save_load import SaveLoad
+from models.tournament import Tournament
 
 a = [
     [
@@ -85,5 +87,11 @@ score_2 = (((a[0])[0])[0])
 
 match_1 = ((a[index_round])[index_match])
 round_1 = (a[index_round])
-print(len(round_1))
 
+
+
+
+def get_current_round_nb(tournament_name):
+    selected_tournament = Tournament.selected_tournament(tournament_name)
+    current_round_nb = selected_tournament['Current_round_nb']
+    return current_round_nb

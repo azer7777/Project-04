@@ -18,9 +18,22 @@ class Pair():
             players_list.append(player_name)
             index += 1
         return players_list
+    
+    
+    def initial_match_list(self):
+        players_list = Pair.get_players_list(self)
+        Pair.shuffle_players(self, players_list)
+        index_1 = 0
+        index_2 = 1
+        for loop in range(int(len(players_list) / 2)):
+            matches__init__ = Matches(players_list[index_1], players_list[index_2], score_1=0, score_2=0)
+            match_list = matches__init__.create_match_list()                           
+            index_1 += 1
+            index_2 += 1
+        return match_list
 
 
-    def get_pairs(self):
+    def result_match_list(self):
         rounds_matches = SaveLoad.load_only(file_name=("rounds_matches/" + self.tournament_name))
         index_round = (self.current_round_nb) - 1
         index_match = 0
@@ -43,7 +56,13 @@ class Pair():
             matches__init__ = Matches(player_score[0], player_score[1], player_score[2], player_score[3])
             match_list = matches__init__.create_match_list()
         return match_list
+    
+    def next_match_list(self):
+        pass
 
+    
+    
+    
     
     def shuffle_players(self, players_list):
         if self.current_round_nb == 1:
@@ -61,28 +80,14 @@ class Pair():
             score_1 += 0.5
             score_2 += 0.5
         return player_1, player_2, score_1, score_2
-    
-
-    
-    
-    
+      
         
     def get_match_list(self):
-        players_list = Pair.get_players_list(self)
-        Pair.shuffle_players(self, players_list)
-        index_1 = 0
-        index_2 = 1
         if self.current_round_nb == 1:
-            for loop in range(int(len(players_list) / 2)):
-                matches__init__ = Matches(players_list[index_1], players_list[index_2], score_1=0, score_2=0)
-                match_list = matches__init__.create_match_list()                           
-                index_1 += 1
-                index_2 += 1
+            pass
         else:
-            pass    
-    
-            
-        return match_list
+            pass                
+        return 
 
 
                
