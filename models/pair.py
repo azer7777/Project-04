@@ -39,6 +39,10 @@ class Pair():
             print(pandas.DataFrame(match))
             index_match += 1
             winner_name = Entries.get_winner_name()
+            player_score = Pair.get_score(player_1_name, player_2_name, player_1_score, player_2_score, winner_name)
+            matches__init__ = Matches(player_score[0], player_score[1], player_score[2], player_score[3])
+            match_list = matches__init__.create_match_list()
+        return match_list
 
     
     def shuffle_players(self, players_list):
@@ -80,25 +84,7 @@ class Pair():
             
         return match_list
 
-    def get_pairs(self):
-        rounds_matches = SaveLoad.load_only(file_name=("rounds_matches/" + self.tournament_name))
-        index_round = (self.current_round_nb) - 1
-        index_match = 0
-        index_player_1 = 0
-        index_player_2 = 1
-        index_player_name = 0
-        index_player_score = 1
-        rounda = ((round_matches)[index_round])
-        match = (rounda[index_match])        
-        player_1_name = ((match[index_player_1])[index_player_name])
-        player_2_name = ((match[index_player_2])[index_player_name])
-        player_1_score = ((match[index_player_1])[index_player_score])
-        player_2_score = ((match[index_player_2])[index_player_score])       
-        round_matches = (len(rounds_matches[index_round]))
-        for loop in range(round_matches):
-            print(pandas.DataFrame(match))
-            index_match += 1
-            winner_name = Entries.get_winner_name()
+
                
             
         
