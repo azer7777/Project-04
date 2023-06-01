@@ -67,6 +67,8 @@ class Manager:
         
     def end_round(tournament_name, current_round_nb, score_1, score_2):
         winner_name = Entries.get_winner_name()
+    
+    
         
     def display_rounds(tournament_name):
         SaveLoad.load(file_name=("rounds_info/" + tournament_name), title="Rounds")

@@ -72,9 +72,9 @@ a = [
     
 
 
-index_round = 1
+index_round = 0
 index_match = 0
-index_player = 1
+index_player = 0
 index_name_score = 0
 
 
@@ -82,5 +82,8 @@ player_1 = (((a[index_round])[index_match])[index_player])
 player_2 = (((a[0])[0])[1])
 score_1 = ((((a[index_round])[index_match])[index_player])[index_name_score])
 score_2 = (((a[0])[0])[0])
-print(score_1)
+
+match_1 = ((a[index_round])[index_match])
+round_1 = (a[index_round])
+print(len(round_1))
 

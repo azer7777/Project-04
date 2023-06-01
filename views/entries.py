@@ -37,7 +37,7 @@ class Entries:
         return tournament_name
     
     def get_winner_name():
-        winner_name = input(""" Enter winner name : """)
+        winner_name = input(""" Enter the above match winner name (press "Enter" if no winner) : """)
         return winner_name
         
         
