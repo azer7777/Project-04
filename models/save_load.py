@@ -43,9 +43,9 @@ class SaveLoad():
             report = json.load(fp)
         return report        
     
-    def selected_element(element_name, file_name=""):
-        all_tournament = SaveLoad.load_only(file_name)
-        selection = next((sub for sub in all_tournament if sub['Tournament_name'] == element_name), None)
+    def selected_archive(archive_name, key="", file_name=""):
+        all_archives = SaveLoad.load_only(file_name)
+        selection = next((sub for sub in all_archives if sub[key] == archive_name), None)
         return selection 
     
     def update(element_name, changes, file_name=""):

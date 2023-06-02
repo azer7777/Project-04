@@ -37,7 +37,7 @@ class Manager:
         return
         
     def select_tournament(tournament_name):
-        selection = SaveLoad.selected_element(tournament_name, file_name="tournaments_info")
+        selection = SaveLoad.selected_archive(tournament_name, key='Tournament_name', file_name="tournaments_info")
         if selection == None:
             print("Invalid tournament name !")
             tournament_name = None
@@ -53,7 +53,7 @@ class Manager:
         return
     
     def create_round(tournament_name):
-        current_round_nb = Tournament.get_current_round_nb(tournament_name)
+        current_round_nb = (Tournament.get_current_round_nb(tournament_name)) + 1
         pair__init__ = Pair(tournament_name, current_round_nb)
         match_list = pair__init__.get_match_list()       
         rounds__init__ = Rounds(current_round_nb, match_list)
@@ -61,7 +61,7 @@ class Manager:
         round_info_serialized = rounds__init__.get_round_info_serialized()
         SaveLoad.save(round_maches_seiralized, file_name=("rounds_matches/" + tournament_name))
         SaveLoad.save(round_info_serialized, file_name=("rounds_info/" + tournament_name))
-        tournament_changes = {'Current_round_nb': current_round_nb + 1}
+        tournament_changes = {'Current_round_nb': current_round_nb}
         SaveLoad.update(tournament_name, tournament_changes, file_name="tournaments_info")
         print("""    Round successfully created
                         Tournament updated       """)
@@ -70,8 +70,11 @@ class Manager:
         
         
     def end_round(tournament_name):
-        winner_name = Entries.get_winner_name()
         current_round_nb = Tournament.get_current_round_nb(tournament_name)
+        pair__init__ = Pair(tournament_name, current_round_nb)
+        
+        
+        
         if current_round_nb == 4:
             end_time =  time.strftime("%d %m %Y %H:%M")
             tournament_changes = {'End_date': end_time}
@@ -83,6 +86,8 @@ class Manager:
         SaveLoad.load(file_name=("rounds_info/" + tournament_name), title="Rounds")
         return
     
+    def display_matches(tournament_name):
+        pass
         
         
         
