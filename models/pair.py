@@ -55,7 +55,7 @@ class Pair():
             player_score = Pair.get_score(player_1_name, player_2_name, player_1_score, player_2_score, winner_name)
             matches__init__ = Matches(player_score[0], player_score[1], player_score[2], player_score[3])
             match_list = matches__init__.create_match_list()
-        return match_list
+        return match_list, index_round
     
     def next_match_list(self):
         pass

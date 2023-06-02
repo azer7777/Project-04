@@ -91,7 +91,8 @@ round_1 = (a[index_round])
 
 
 
-def get_current_round_nb(tournament_name):
-    selected_tournament = Tournament.selected_tournament(tournament_name)
-    current_round_nb = selected_tournament['Current_round_nb']
-    return current_round_nb
+u = [(["d", 10], ["z", 22]), (["j", 55], ["l", 33])]
+
+u[1] = [2, 5]
+
+print(u)

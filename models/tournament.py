@@ -45,6 +45,6 @@ class Tournament:
         return tournament_players_serialized
        
     def get_current_round_nb(tournament_name):
-        selected_tournament = SaveLoad.selected_archive(tournament_name, key='Tournament_name', file_name="tournaments_info")
+        selected_tournament = SaveLoad.selected_archive("Tournament_name", tournament_name, file_name="tournaments_info")
         current_round_nb = selected_tournament['Current_round_nb']
         return current_round_nb

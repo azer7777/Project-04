@@ -37,7 +37,7 @@ class Manager:
         return
         
     def select_tournament(tournament_name):
-        selection = SaveLoad.selected_archive(tournament_name, key='Tournament_name', file_name="tournaments_info")
+        selection = SaveLoad.selected_archive("Tournament_name", tournament_name, file_name="tournaments_info")
         if selection == None:
             print("Invalid tournament name !")
             tournament_name = None
@@ -62,25 +62,25 @@ class Manager:
         SaveLoad.save(round_maches_seiralized, file_name=("rounds_matches/" + tournament_name))
         SaveLoad.save(round_info_serialized, file_name=("rounds_info/" + tournament_name))
         tournament_changes = {'Current_round_nb': current_round_nb}
-        SaveLoad.update(tournament_name, tournament_changes, file_name="tournaments_info")
+        SaveLoad.update("Tournament_name", tournament_name, tournament_changes, file_name="tournaments_info")
         print("""    Round successfully created
                         Tournament updated       """)
-        return
-        
-        
+        return       
         
     def end_round(tournament_name):
         current_round_nb = Tournament.get_current_round_nb(tournament_name)
         pair__init__ = Pair(tournament_name, current_round_nb)
-        
-        
-        
+        match_list = pair__init__.result_match_list()
+        SaveLoad.update_round(match_list[0], match_list[1], file_name=("rounds_matches/" + tournament_name))       
         if current_round_nb == 4:
-            end_time =  time.strftime("%d %m %Y %H:%M")
+            end_time =  time.strftime("%d %m %Y")
             tournament_changes = {'End_date': end_time}
             SaveLoad.update(tournament_name, tournament_changes, file_name="tournaments_info")
-    
-    
+        end_date_time = time.strftime("%d %m %Y %H:%M")
+        round_name = "Round" + " " + str(current_round_nb)
+        round_changes = {"End_date_time": end_date_time}
+        SaveLoad.update("Round_name", round_name, round_changes, file_name=("rounds_info/" + tournament_name))
+        return    
         
     def display_rounds(tournament_name):
         SaveLoad.load(file_name=("rounds_info/" + tournament_name), title="Rounds")
