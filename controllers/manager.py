@@ -5,7 +5,7 @@ from models.save_load import SaveLoad
 from views.entries import Entries
 from models.tournament import Tournament
 from models.rounds import Rounds
-from models.pair import Pair
+from models.matches import Matches
 
 class Manager:
     def add_player():
@@ -54,8 +54,8 @@ class Manager:
     
     def create_round(tournament_name):
         current_round_nb = (Tournament.get_current_round_nb(tournament_name)) + 1
-        pair__init__ = Pair(tournament_name, current_round_nb)
-        match_list = pair__init__.get_match_list()       
+        matches__init__ = Matches(tournament_name, current_round_nb)
+        match_list = matches__init__.get_match_list()       
         rounds__init__ = Rounds(current_round_nb, match_list)
         round_maches_seiralized = rounds__init__.get_round_maches_serialized()
         round_info_serialized = rounds__init__.get_round_info_serialized()
@@ -69,8 +69,8 @@ class Manager:
         
     def end_round(tournament_name):
         current_round_nb = Tournament.get_current_round_nb(tournament_name)
-        pair__init__ = Pair(tournament_name, current_round_nb)
-        match_list = pair__init__.result_match_list()
+        matches__init__ = Matches(tournament_name, current_round_nb)
+        match_list = matches__init__.end_match_list()
         SaveLoad.update_round(match_list[0], match_list[1], file_name=("rounds_matches/" + tournament_name))       
         if current_round_nb == 4:
             end_time =  time.strftime("%d %m %Y")

@@ -17,7 +17,6 @@ class Rounds:
         self.match_list = match_list
     
     def get_round_maches_serialized(self):
-        round_name = self.round_name + "           "
         round_serialized = self.match_list
         return round_serialized
                

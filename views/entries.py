@@ -42,7 +42,7 @@ class Entries:
     
     def get_winner_name():
         winner_name = input(""" 
-                                   Enter the above match winner name (press "Enter" if no winner) : """)
+                                   Enter the above match winner name (press "Enter" if a draw) : """)
         return winner_name
         
         

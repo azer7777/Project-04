@@ -6,11 +6,31 @@ a = [
     [
         [
             [
-                "dht",
+                "sdgsthg",
                 0
             ],
             [
-                "drgdg",
+                "dht",
+                0
+            ]
+        ],
+        [
+            [
+                "efef",
+                0
+            ],
+            [
+                "iklki",
+                0
+            ]
+        ],
+        [
+            [
+                "gfhj",
+                0
+            ],
+            [
+                "grfgrf",
                 0
             ]
         ],
@@ -21,48 +41,6 @@ a = [
             ],
             [
                 "sdgrfgf",
-                0
-            ]
-        ],
-        [
-            [
-                "sdgrfgf",
-                0
-            ],
-            [
-                "gfhj",
-                0
-            ]
-        ]
-    ],
-    [
-        [
-            [
-                "sdgrfgf",
-                0
-            ],
-            [
-                "gfhj",
-                0
-            ]
-        ],
-        [
-            [
-                "gfhj",
-                0
-            ],
-            [
-                "dht",
-                0
-            ]
-        ],
-        [
-            [
-                "dht",
-                0
-            ],
-            [
-                "drgdg",
                 0
             ]
         ]
@@ -71,28 +49,23 @@ a = [
 
 
 
-    
+def hend_match_list():
+        rounds_matches = a
+        index_round = 0
+        index_match = 0
+        index_player_1 = 0
+        index_player_2 = 1
+        index_player_name = 0
+        index_player_score = 1
+        rounda = ((rounds_matches)[index_round])
+        match = (rounda[index_match])        
+       
+        round_matches = (len(rounds_matches[index_round]))
 
+        for loop in range(round_matches):
+            print(pandas.DataFrame(rounda[index_match]))            
+            winner_name = input()
+            index_match += 1
+        return
 
-index_round = 0
-index_match = 0
-index_player = 0
-index_name_score = 0
-
-
-player_1 = (((a[index_round])[index_match])[index_player])
-player_2 = (((a[0])[0])[1])
-score_1 = ((((a[index_round])[index_match])[index_player])[index_name_score])
-score_2 = (((a[0])[0])[0])
-
-match_1 = ((a[index_round])[index_match])
-round_1 = (a[index_round])
-
-
-
-
-u = [(["d", 10], ["z", 22]), (["j", 55], ["l", 33])]
-
-u[1] = [2, 5]
-
-print(u)
+hend_match_list()     
