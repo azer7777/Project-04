@@ -70,7 +70,7 @@ class Manager:
     def end_round(tournament_name):
         current_round_nb = Tournament.get_current_round_nb(tournament_name)
         matches__init__ = Matches(tournament_name, current_round_nb)
-        match_list = matches__init__.end_match()
+        match_list = matches__init__.match_list()
         SaveLoad.update_round(match_list[0], match_list[1], file_name=("rounds_matches/" + tournament_name))       
         if current_round_nb == 4:
             end_time =  time.strftime("%d %m %Y")
