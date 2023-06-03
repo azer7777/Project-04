@@ -1,28 +1,18 @@
-a = [
+[
     [
         [
             [
-                "sdgrfgf",
-                0.5
-            ],
-            [
-                "sdgsthg",
-                0.5
-            ]
-        ],
-        [
-            [
-                "dht",
+                "gfhj",
                 1
             ],
             [
-                "grfgrf",
+                "sdgrfgf",
                 0
             ]
         ],
         [
             [
-                "iklki",
+                "dht",
                 0.5
             ],
             [
@@ -32,22 +22,23 @@ a = [
         ],
         [
             [
+                "sdgsthg",
+                0.5
+            ],
+            [
+                "iklki",
+                0.5
+            ]
+        ],
+        [
+            [
                 "efef",
                 1
             ],
             [
-                "gfhj",
+                "grfgrf",
                 0
             ]
         ]
     ]
 ]
-
-
-player_1_score = (((((a)[0])[0])[0])[1])
-
-a.sort(key = lambda x: x[int(player_1_score)])
-
-print(a)
-
-
