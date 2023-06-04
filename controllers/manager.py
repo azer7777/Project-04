@@ -84,7 +84,7 @@ class Manager:
         if current_round_nb == 4:
             end_time =  time.strftime("%d %m %Y")
             tournament_changes = {'End_date': end_time}
-            SaveLoad.update(tournament_name, tournament_changes, file_name="tournaments_info")
+            SaveLoad.update("Tournament_name", tournament_name, tournament_changes, file_name="tournaments_info")
             print(""""    Tournament updated """)
         return    
         

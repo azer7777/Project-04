@@ -5,15 +5,8 @@ class Rounds:
         self.round_name = "Round" + " " + str(current_round_nb)
         self.current_round_nb = current_round_nb
         date_time = time.strftime("%d %m %Y %H:%M")
-        if self.current_round_nb == 1:
-            self.start_date_time = date_time
-            self.end_date_time = "In progress"
-        elif self.current_round_nb == 4:
-            self.end_date_time = date_time
-        else:
-            self.start_date_time = date_time
-            self.end_date_time = "In progress"
-            
+        self.start_date_time = date_time
+        self.end_date_time = "In progress"            
         self.match_list = match_list
     
     def get_round_maches_serialized(self):
