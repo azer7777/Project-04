@@ -53,9 +53,12 @@ class Manager:
         return
     
     def create_round(tournament_name):
-        current_round_nb = (Tournament.get_current_round_nb(tournament_name)) + 1
+        current_round_nb = ((Tournament.get_current_round_nb(tournament_name)) + 1)
         matches__init__ = Matches(tournament_name, current_round_nb)
-        match_list = matches__init__.get_match_list()       
+        if current_round_nb == 1:
+            match_list = matches__init__.initial_match_list()
+        else:
+            match_list = matches__init__.match_list(Matches.next_match_list)       
         rounds__init__ = Rounds(current_round_nb, match_list)
         round_maches_seiralized = rounds__init__.get_round_maches_serialized()
         round_info_serialized = rounds__init__.get_round_info_serialized()
@@ -63,23 +66,26 @@ class Manager:
         SaveLoad.save(round_info_serialized, file_name=("rounds_info/" + tournament_name))
         tournament_changes = {'Current_round_nb': current_round_nb}
         SaveLoad.update("Tournament_name", tournament_name, tournament_changes, file_name="tournaments_info")
-        print("""    Round successfully created
-                        Tournament updated       """)
+        print("""    Round {} successfully created
+                        Tournament updated       """.format(current_round_nb))
         return       
         
     def end_round(tournament_name):
         current_round_nb = Tournament.get_current_round_nb(tournament_name)
+        index_round = (current_round_nb - 1)
         matches__init__ = Matches(tournament_name, current_round_nb)
-        match_list = matches__init__.match_list()
-        SaveLoad.update_round(match_list[0], match_list[1], file_name=("rounds_matches/" + tournament_name))       
+        match_list = matches__init__.match_list(Matches.end_match_list)
+        SaveLoad.update_round(match_list, index_round, file_name=("rounds_matches/" + tournament_name))
+        end_date_time = time.strftime("%d %m %Y %H:%M")
+        round_name = "Round" + " " + str(current_round_nb)
+        round_changes = {"End_date_time": end_date_time}
+        SaveLoad.update("Round_name", round_name, round_changes, file_name=("rounds_info/" + tournament_name)) 
+        print("""    Round {} successfully terminated """.format(current_round_nb))    
         if current_round_nb == 4:
             end_time =  time.strftime("%d %m %Y")
             tournament_changes = {'End_date': end_time}
             SaveLoad.update(tournament_name, tournament_changes, file_name="tournaments_info")
-        end_date_time = time.strftime("%d %m %Y %H:%M")
-        round_name = "Round" + " " + str(current_round_nb)
-        round_changes = {"End_date_time": end_date_time}
-        SaveLoad.update("Round_name", round_name, round_changes, file_name=("rounds_info/" + tournament_name))
+            print(""""    Tournament updated """)
         return    
         
     def display_rounds(tournament_name):

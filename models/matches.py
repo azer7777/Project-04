@@ -22,16 +22,16 @@ class Matches():
         players_list = Pair.shuffled_player_list(self.tournament_name)
         index_1 = 0
         index_2 = 1
-        matches_list = []
+        match_list = []
         for i in range(int(len(players_list) / 2)):
             create_match= Matches.create_match(players_list[index_1], players_list[index_2], score_1=0, score_2=0)
-            matches_list.append(create_match)                           
+            match_list.append(create_match)                           
             index_1 += 2
             index_2 += 2
-        return matches_list
+        return match_list
 
 
-    def match_list(self):
+    def match_list(self, function):
         all_rounds_matches = SaveLoad.load_only(file_name=("rounds_matches/" + self.tournament_name))
         index_round = (self.current_round_nb) - 1
         index_match = 0
@@ -41,31 +41,29 @@ class Matches():
         index_player_score = 1
         one_round = ((all_rounds_matches)[index_round])      
         nb_of_matches = (len(all_rounds_matches[index_round]))
-        match_list = []
+        list = []
         for i in range(nb_of_matches):
             match = (one_round[index_match])        
             player_1_name = ((match[index_player_1])[index_player_name])
             player_2_name = ((match[index_player_2])[index_player_name])
             player_1_score = ((match[index_player_1])[index_player_score])
             player_2_score = ((match[index_player_2])[index_player_score])
-            print(pandas.DataFrame(match))           
-            winner_name = Entries.get_winner_name()
-            player_score = Pair.get_score(player_1_name, player_2_name, player_1_score, player_2_score, winner_name)
-            create_match = Matches.create_match(player_score[0], player_score[1], player_score[2], player_score[3])
-            match_list.append(create_match)
+            match_list = function(list, match, player_1_name, player_2_name, player_1_score, player_2_score)
             index_match += 1
-        return match_list, index_round
-
+        return match_list
+    
+    def end_match_list(list, match, player_1_name, player_2_name, player_1_score, player_2_score):
+        print(pandas.DataFrame(match))           
+        winner_name = Entries.get_winner_name()
+        player_score = Pair.get_score(player_1_name, player_2_name, player_1_score, player_2_score, winner_name)
+        create_match = Matches.create_match(player_score[0], player_score[1], player_score[2], player_score[3])
+        list.append(create_match)
+        return list
   
     def next_match_list(self):
         pass
        
-    def get_match_list(self):
-        if self.current_round_nb == 1:
-            match_list = Matches.initial_match_list(self)
-        else:
-            pass                
-        return match_list
+
 
 
                
