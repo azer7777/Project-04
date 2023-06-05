@@ -82,7 +82,7 @@ class Manager:
         SaveLoad.update("Round_name", round_name, round_changes, file_name=("rounds_info/" + tournament_name)) 
         print("""    Round {} successfully terminated """.format(current_round_nb))    
         if current_round_nb == 4:
-            end_time =  time.strftime("%d %m %Y")
+            end_time =  time.strftime("%d/%m/%Y")
             tournament_changes = {'End_date': end_time}
             SaveLoad.update("Tournament_name", tournament_name, tournament_changes, file_name="tournaments_info")
             print(""""    Tournament updated """)
@@ -93,7 +93,16 @@ class Manager:
         return
     
     def display_matches(tournament_name):
-        pass
+        round_nb = 1
+        all_rounds = SaveLoad.load_only(file_name=("rounds_matches/" + "eeee"))
+        for one_round in all_rounds:
+            print()
+            print("               Round" + " " + str(round_nb))
+            print()
+            print(pandas.DataFrame(one_round)) 
+            round_nb += 1
+        return
+
         
         
         

@@ -13,19 +13,24 @@ class Tournament:
         self.nb_of_rounds = nb_of_rounds
               
     def create_tournament_players_list():
-        nb_of_players = int(input("""Enter the number of players (must be even) : """))
+        input_message = """Enter the number of players (must be even) : """
+        nb_of_players = Tournament.check_integer(input_message)       
         while (nb_of_players % 2) != 0:
             print("Must be even !")
             print("Try again")
-            nb_of_players = int(input("""Enter the number of players (must be even) : """))
+            nb_of_players = Tournament.check_integer(input_message)
         SaveLoad.load(file_name="registred_players")
         tournament_players_list = []
-        for loop in range(nb_of_players):
-            selection_index = int(input("Select a player from  the above list by entring a matching number : "))
-            user_selection = (SaveLoad.load_only(file_name="registred_players"))[selection_index]
-            tournament_players_list.append(user_selection)
-            print("   Player selected")
-        tournament_players_list                           
+        for i in range(nb_of_players):
+            player_name = input("Select a player from  the above list by entring a family name : ")
+            selection = SaveLoad.selected_archive("Family_name", player_name, file_name="registred_players")
+            while selection == None:
+                print("Invalid family name !")
+                print("Try again")
+                player_name = input("Select a player from  the above list by entring a family name : ")
+                selection = SaveLoad.selected_archive("Family_name", player_name, file_name="registred_players")
+            tournament_players_list.append(selection)
+            print("   Player selected")                           
         return tournament_players_list
         
     def get_tournament_info_serialized(self):
@@ -48,3 +53,14 @@ class Tournament:
         selected_tournament = SaveLoad.selected_archive("Tournament_name", tournament_name, file_name="tournaments_info")
         current_round_nb = selected_tournament['Current_round_nb']
         return current_round_nb
+    
+    def check_integer(input_message):
+        user_input = ""
+        while user_input is not int:
+            try:
+                user_input = int(input(input_message))
+                break
+            except ValueError:
+                print("Must be integer !")
+                print("Try again")
+        return user_input

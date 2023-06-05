@@ -1,8 +1,32 @@
+import pandas
+from models.save_load import SaveLoad
+
+
 a = [
     [
         [
             [
+                "efef",
+                1
+            ],
+            [
+                "iklki",
+                0
+            ]
+        ],
+        [
+            [
                 "sdgrfgf",
+                0
+            ],
+            [
+                "drgdg",
+                1
+            ]
+        ],
+        [
+            [
+                "grfgrf",
                 0.5
             ],
             [
@@ -13,41 +37,151 @@ a = [
         [
             [
                 "dht",
-                1
-            ],
-            [
-                "grfgrf",
                 0
-            ]
-        ],
-        [
-            [
-                "iklki",
-                0.5
-            ],
-            [
-                "drgdg",
-                0.5
-            ]
-        ],
-        [
-            [
-                "efef",
-                1
             ],
             [
                 "gfhj",
-                0
+                1
+            ]
+        ]
+    ],
+    [
+        [
+            [
+                "efef",
+                2
+            ],
+            [
+                "drgdg",
+                1
+            ]
+        ],
+        [
+            [
+                "gfhj",
+                1.5
+            ],
+            [
+                "grfgrf",
+                1.0
+            ]
+        ],
+        [
+            [
+                "sdgsthg",
+                1.0
+            ],
+            [
+                "iklki",
+                0.5
+            ]
+        ],
+        [
+            [
+                "sdgrfgf",
+                0.5
+            ],
+            [
+                "dht",
+                0.5
+            ]
+        ]
+    ],
+    [
+        [
+            [
+                "efef",
+                2.5
+            ],
+            [
+                "gfhj",
+                2.0
+            ]
+        ],
+        [
+            [
+                "drgdg",
+                1.5
+            ],
+            [
+                "grfgrf",
+                1.5
+            ]
+        ],
+        [
+            [
+                "sdgsthg",
+                1.5
+            ],
+            [
+                "iklki",
+                1.0
+            ]
+        ],
+        [
+            [
+                "sdgrfgf",
+                1.0
+            ],
+            [
+                "dht",
+                1.0
+            ]
+        ]
+    ],
+    [
+        [
+            [
+                "efef",
+                3.5
+            ],
+            [
+                "gfhj",
+                3.0
+            ]
+        ],
+        [
+            [
+                "drgdg",
+                2.5
+            ],
+            [
+                "grfgrf",
+                2.5
+            ]
+        ],
+        [
+            [
+                "sdgsthg",
+                2.5
+            ],
+            [
+                "iklki",
+                2.0
+            ]
+        ],
+        [
+            [
+                "sdgrfgf",
+                2.0
+            ],
+            [
+                "dht",
+                2.0
             ]
         ]
     ]
 ]
 
 
-player_1_score = (((((a)[0])[0])[0])[1])
 
-a.sort(key = lambda x: x[int(player_1_score)])
-
-print(a)
+round_nb = 1
+all_rounds = SaveLoad.load_only(file_name=("rounds_matches/" + "eeee"))
+for one_round in all_rounds:
+   print()
+   print("               Round" + " " + str(round_nb))
+   print()
+   print(pandas.DataFrame(one_round)) 
+   round_nb += 1
 
 
