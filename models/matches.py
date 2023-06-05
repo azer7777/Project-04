@@ -54,7 +54,7 @@ class Matches():
             index_match += 1
         return match_list
     
-    def end_match_list(list, player_1_name, player_2_name, player_1_score, player_2_score, round_matches , index_match, match):
+    def end_match_list(list, player_1_name, player_2_name, player_1_score, player_2_score, nb_of_matches , index_match, match):
         print(pandas.DataFrame(match))           
         winner_name = Entries.get_winner_name()
         player_score = Pair.get_score(player_1_name, player_2_name, player_1_score, player_2_score, winner_name)
@@ -62,12 +62,12 @@ class Matches():
         list.append(create_match)
         return list
   
-    def next_match_list(list, player_1_name, player_2_name, player_1_score, player_2_score, round_matches , index_match, match):
+    def next_match_list(list, player_1_name, player_2_name, player_1_score, player_2_score, nb_of_matches , index_match, match):
         player_01 = [player_1_name, player_1_score]
         player_02 = [player_2_name, player_2_score]
         list.append(player_01)
         list.append(player_02)
-        if round_matches > (index_match):
+        if nb_of_matches > (index_match):
             list.sort(key = lambda x: x[1], reverse=True)
             match_list = []
             index_1 = 0

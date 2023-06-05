@@ -2,6 +2,7 @@ import json
 from os import path
 import pandas
 
+
 class SaveLoad():
     def save(data_serialized, file_name=""):
         if not path.exists("database/" + file_name):
@@ -29,8 +30,12 @@ class SaveLoad():
 
     
     def load(file_name="", title=""):
-        with open("database/" + file_name) as fp:
-            report = json.load(fp)
+        try:
+            with open("database/" + file_name) as fp:
+                report = json.load(fp)
+        except FileNotFoundError:
+            print("""    File doesn't exist """)
+            return            
         print("""
                          All {} :
                                           """.format(title))
@@ -41,12 +46,17 @@ class SaveLoad():
         return
     
     def load_only(file_name=""):
-        with open("database/" + file_name) as fp:
-            report = json.load(fp)
+        try:
+            with open("database/" + file_name) as fp:
+                report = json.load(fp)
+        except FileNotFoundError:
+            return None
         return report        
     
     def selected_archive(title_key, title_value, file_name=""):
         all_archives = SaveLoad.load_only(file_name)
+        if all_archives == None:
+            return None
         selection = next((sub for sub in all_archives if sub[title_key] == title_value), None)
         return selection 
     
@@ -60,6 +70,7 @@ class SaveLoad():
             json.dump(data_list, json_file,
                           indent=4,
                           separators=(',',': '))
+        return
     
     def update_round(match_list, index_round, file_name=""):
         with open("database/" + file_name) as fp:
@@ -69,3 +80,4 @@ class SaveLoad():
             json.dump(data_list, json_file,
                         indent=4,
                         separators=(',',': '))
+        return

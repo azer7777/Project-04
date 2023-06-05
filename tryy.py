@@ -175,13 +175,12 @@ a = [
 
 
 
-round_nb = 1
-all_rounds = SaveLoad.load_only(file_name=("rounds_matches/" + "eeee"))
-for one_round in all_rounds:
-   print()
-   print("               Round" + " " + str(round_nb))
-   print()
-   print(pandas.DataFrame(one_round)) 
-   round_nb += 1
-
-
+def check_round_statute(tournament_name, current_round_nb):
+        round_name = "Round" + " " + str(current_round_nb)
+        selected_round = SaveLoad.selected_archive("Round_name", round_name, file_name=("rounds_info/" + tournament_name))
+        End_date_time = selected_round["End_date_time"]
+        return End_date_time
+    
+"In progress"
+g = check_round_statute("eeee", 1)
+print(g)

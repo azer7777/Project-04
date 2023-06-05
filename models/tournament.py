@@ -54,6 +54,12 @@ class Tournament:
         current_round_nb = selected_tournament['Current_round_nb']
         return current_round_nb
     
+    def check_round_statute(tournament_name, current_round_nb):
+        round_name = "Round" + " " + str(current_round_nb)
+        selected_round = SaveLoad.selected_archive("Round_name", round_name, file_name=("rounds_info/" + tournament_name))
+        statute = selected_round["End_date_time"]
+        return statute
+        
     def check_integer(input_message):
         user_input = ""
         while user_input is not int:

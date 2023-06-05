@@ -58,6 +58,10 @@ class Manager:
         if current_round_nb == 1:
             match_list = matches__init__.initial_match_list()
         else:
+            statute = Tournament.check_round_statute(tournament_name, (current_round_nb - 1))
+            if statute == "In progress":
+                print("You must end the round in progress ! ")
+                return
             match_list = matches__init__.match_list(Matches.next_match_list)       
         rounds__init__ = Rounds(current_round_nb, match_list)
         round_maches_seiralized = rounds__init__.get_round_maches_serialized()
@@ -72,6 +76,10 @@ class Manager:
         
     def end_round(tournament_name):
         current_round_nb = Tournament.get_current_round_nb(tournament_name)
+        statute = Tournament.check_round_statute(tournament_name, current_round_nb)
+        if statute != "In progress":
+            print("No round in progress ! ")
+            return
         index_round = (current_round_nb - 1)
         matches__init__ = Matches(tournament_name, current_round_nb)
         match_list = matches__init__.match_list(Matches.end_match_list)
@@ -95,6 +103,8 @@ class Manager:
     def display_matches(tournament_name):
         round_nb = 1
         all_rounds = SaveLoad.load_only(file_name=("rounds_matches/" + "eeee"))
+        if all_rounds == None:
+            return
         for one_round in all_rounds:
             print()
             print("               Round" + " " + str(round_nb))
