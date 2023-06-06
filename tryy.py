@@ -173,14 +173,18 @@ a = [
     ]
 ]
 
-
-
-def check_round_statute(tournament_name, current_round_nb):
-        round_name = "Round" + " " + str(current_round_nb)
-        selected_round = SaveLoad.selected_archive("Round_name", round_name, file_name=("rounds_info/" + tournament_name))
-        End_date_time = selected_round["End_date_time"]
-        return End_date_time
+def get_chess_national_id():
+    two_letters = input("Enter chess national id first two letters : ")
+    five_numbers = input("Enter chess national id five last numbers : ")
+    while (len(two_letters) != 2 and two_letters is not str and
+           len(five_numbers) != 5 and two_letters is not int) :
+        print("Invalid ID")
+        print("Try again")
+        two_letters = input("Enter chess national id first two letters : ")
+        five_numbers = input("Enter chess national id five last numbers : ")
+    chess_national_id = (two_letters).upper() + str(five_numbers)
+    return chess_national_id
     
-"In progress"
-g = check_round_statute("eeee", 1)
-print(g)
+r  = get_chess_national_id()
+
+print(r)

@@ -7,8 +7,9 @@ class Entries:
         print()
         family_name = input("""    Enter family name : """)
         first_name = input("""    Enter first name :""") 
-        date_of_birth = Entries.check_date_format("date_of_birth")                
-        return (family_name, first_name, date_of_birth)
+        date_of_birth = Entries.check_date_format("date_of_birth")
+        chess_national_id = Entries.get_chess_national_id()                        
+        return (family_name, first_name, date_of_birth, chess_national_id)
     
     def get_tournament_entries():
         print()
@@ -21,6 +22,18 @@ class Entries:
         end_date = "In progress"                
         return (name, place, tournament_players_list, start_date, end_date, current_round_nb, description)
     
+    def get_chess_national_id():
+        two_letters = input("Enter chess national id first two letters : ")
+        five_numbers = input("Enter chess national id five last numbers : ")
+        while ((len(two_letters) != 2) and (two_letters is not str) or
+               (len(five_numbers) != 5) and (five_numbers is not int)):
+            print("Invalid ID")
+            print("Try again")
+            two_letters = input("Enter chess national id first two letters : ")
+            five_numbers = input("Enter chess national id five last numbers : ")
+        chess_national_id = (two_letters).upper() + str(five_numbers)
+        return chess_national_id
+            
     def check_date_format(subject):
         date = input(("""    Enter {} (format "DD/MM/YYYY") : """).format(subject))        
         if date != "":

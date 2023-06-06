@@ -10,7 +10,7 @@ from models.matches import Matches
 class Manager:
     def add_player():
         player_entries = Entries.get_player_entries()
-        serialized_data = Player(player_entries[0], player_entries[1], player_entries[2]).serialize_player_data()
+        serialized_data = Player(player_entries[0], player_entries[1], player_entries[2], player_entries[3]).serialize_player_data()
         SaveLoad.save(serialized_data, file_name="registred_players")
         print("""    Player successfully added""")
         return
@@ -102,7 +102,7 @@ class Manager:
     
     def display_matches(tournament_name):
         round_nb = 1
-        all_rounds = SaveLoad.load_only(file_name=("rounds_matches/" + "eeee"))
+        all_rounds = SaveLoad.load_only(file_name=("rounds_matches/" + tournament_name))
         if all_rounds == None:
             return
         for one_round in all_rounds:

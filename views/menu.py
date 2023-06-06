@@ -8,12 +8,15 @@ class Menu:
         print("""               Main menu                """)
         print()
         option =  input("""
-                          1 : Player_menu             2 : Tournament_menu      
+                          1 : Player_menu             2 : Tournament_menu
+                          3 : Quit      
                                Enter a matching number to choose an option : """)
         if option == "1":
             Menu.player_menu() 
         elif option == "2":
             Menu.tournament_menu()
+        elif option == "3":
+            return
         else:
             print("You can only enter a matching number !")
             Menu.main_menu()
@@ -55,55 +58,52 @@ class Menu:
             Manager.display_all_tournaments()
             Menu.tournament_menu()
         elif option == "3":
-                tournament_name = Entries.get_selected_tournament_name()
-                select_tournament = Manager.select_tournament(tournament_name)
-                if select_tournament == None:
+            tournament_name = Entries.get_selected_tournament_name()
+            select_tournament = Manager.select_tournament(tournament_name)
+            if select_tournament == None:
                     Menu.tournament_menu()
-                else:                    
+            else:
+                while True:
+                    print("""        
+                                 Tournament {} is selected                     
+                                                             """.format(tournament_name))                                            
                     option =  input("""
-                               1 : Start and end a round               2 : Display the players
-                               3 : Display rounds and matches          4 : Tournament menu      
-                                   Enter a matching number to choose an option : """)
-                if option == "1":
-                    option =  input("""
-                               1 : Create a round            2 : End current round
-                               3 : Tournament menu          
-                                   Enter a matching number to choose an option : """)
+                                1 : Start or end a round                2 : Display the players
+                                3 : Display rounds and matches          4 : Tournament menu      
+                                    Enter a matching number to choose an option : """)
                     if option == "1":
-                        Manager.create_round(tournament_name)
-                        Menu.tournament_menu()
+                        option =  input("""
+                                   1 : Create a round            2 : End current round
+                                   3 : Tournament menu          
+                                       Enter a matching number to choose an option : """)
+                        if option == "1":
+                            Manager.create_round(tournament_name)
+                        elif option == "2":
+                            Manager.end_round(tournament_name)
+                        elif option == "3":
+                            Menu.tournament_menu()
+                        else:
+                            print("You can only enter a matching number !")
                     elif option == "2":
-                        Manager.end_round(tournament_name)
-                        Menu.tournament_menu()
+                        Manager.display_tournament_players(tournament_name)
                     elif option == "3":
+                        option =  input("""
+                                   1 : Display all rounds            2 : Display all matches
+                                   3 : Tournament menu                     
+                                       Enter a matching number to choose an option : """)
+                        if option == "1":
+                            Manager.display_rounds(tournament_name)
+                        elif option == "2":
+                            Manager.display_matches(tournament_name)
+                        elif option == "3":
+                            Menu.tournament_menu()
+                        else:
+                            print("You can only enter a matching number !")
+                    elif option == "4":
                         Menu.tournament_menu()
                     else:
                         print("You can only enter a matching number !")
                         Menu.tournament_menu()
-                elif option == "2":
-                    Manager.display_tournament_players(tournament_name)
-                    Menu.tournament_menu()
-                elif option == "3":
-                    option =  input("""
-                               1 : Display all rounds            2 : Display all matches
-                               3 : Tournament menu                     
-                                   Enter a matching number to choose an option : """)
-                    if option == "1":
-                        Manager.display_rounds(tournament_name)
-                        Menu.tournament_menu()
-                    elif option == "2":
-                        Manager.display_matches(tournament_name)
-                        Menu.tournament_menu()
-                    elif option == "3":
-                        Menu.tournament_menu()
-                    else:
-                        print("You can only enter a matching number !")
-                        Menu.tournament_menu()
-                elif option == "4":
-                    Menu.tournament_menu()
-                else:
-                    print("You can only enter a matching number !")
-                    Menu.tournament_menu()
         elif option == "4":
             Menu.main_menu()  
         else:
