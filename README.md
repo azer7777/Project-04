@@ -27,10 +27,11 @@ L'utilisateur sélecte l'option qui lui correspond tout en respectant les indica
 Installez flake8 avec la commande: pip intall flake8-html
 
 Créer un fichier setup.cfg et ecrire le texte suivant dedans:
-
+````
 [flake8]
 exclude = .git, env, __pycache__, .gitignore
 max-line-length = 119
+````
 
 Entrez la commande: flake8 --format=html --htmldir=flake-report
 
