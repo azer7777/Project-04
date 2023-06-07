@@ -67,5 +67,11 @@
         "First_name": "dfhtfth",
         "Date_of_birth": "02/02/2000",
         "Chess_national_id": "FF26262"
+    },
+    {
+        "Family_name": "redh",
+        "First_name": "rh",
+        "Date_of_birth": "12/03/2000",
+        "Chess_national_id": "FF12121"
     }
 ]

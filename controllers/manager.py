@@ -15,7 +15,6 @@ class Manager:
             player_entries[0], player_entries[1], player_entries[2], player_entries[3]
         ).serialize_player_data()
         SaveLoad.save(serialized_data, file_name="registred_players")
-        print("""    Player successfully added""")
         return
 
     def display_all_players():
@@ -39,7 +38,6 @@ class Manager:
         SaveLoad.save_tournament_players(
             tournament_players_serialized, file_name=("tournaments_players/" + tournament_entries[0])
         )
-        print("""    Tournament successfully added""")
         return
 
     def display_all_tournaments():

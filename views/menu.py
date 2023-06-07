@@ -37,6 +37,7 @@ class Menu:
         )
         if option == "1":
             Manager.add_player()
+            print("""    Player successfully added""")
             Menu.player_menu()
         elif option == "2":
             Manager.display_all_players()
@@ -60,6 +61,7 @@ class Menu:
         )
         if option == "1":
             Manager.create_tournament()
+            print("""    Tournament successfully added""")
             Menu.tournament_menu()
         elif option == "2":
             Manager.display_all_tournaments()
