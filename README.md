@@ -1,6 +1,6 @@
 # Project-04
 
-### Exection du script
+## Exection du script
 
 ETAPE 1
  
@@ -18,16 +18,15 @@ ETAPE 3
 
 Execution du script : "python main.py"
 
-# Utilisation
+## Utilisation
 Âpres, l'exécution du script, le menu principal s'affiche.
 L'utilisateur sélecte l'option qui lui correspond tout en respectant les indications.
 
-# Générer un rapport Flake8 :
+## Générer un rapport Flake8 :
 
 Installez flake8 avec la commande: pip intall flake8-html
 
-Créer un fichier setup.cfg
-Ecrire le texte suivant dedans:
+Créer un fichier setup.cfg et ecrire le texte suivant dedans:
 
 [flake8]
 exclude = .git, env, __pycache__, .gitignore
