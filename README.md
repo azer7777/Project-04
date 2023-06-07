@@ -19,9 +19,9 @@ non_env_virtuel\Scripts\Activate.ps1
 ETAPE 2
 
 Installation des packages : 
-````````
+````
 pip install -r requirements.txt
-
+````
 ETAPE 3
 
 Execution du script : 
