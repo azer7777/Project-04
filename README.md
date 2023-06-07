@@ -1,6 +1,6 @@
 # Project-04
 
-# Exection du script
+### Exection du script
 
 ETAPE 1
  
@@ -25,10 +25,14 @@ L'utilisateur sélecte l'option qui lui correspond tout en respectant les indica
 # Générer un rapport Flake8 :
 
 Installez flake8 avec la commande: pip intall flake8-html
+
 Créer un fichier setup.cfg
 Ecrire le texte suivant dedans:
+
 [flake8]
 exclude = .git, env, __pycache__, .gitignore
 max-line-length = 119
-Tapez la commande: flake8 --format=html --htmldir=flake-report
+
+Entrez la commande: flake8 --format=html --htmldir=flake-report
+
 Le rapport sera généré dans le dossier flake8.
