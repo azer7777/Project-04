@@ -68,7 +68,7 @@ class Matches():
         list.append(player_01)
         list.append(player_02)
         if nb_of_matches > (index_match):
-            new_list = Pair.get_next_pair(list)
+            new_list = Pair.get_next_ranking(list)
             match_list = []
             index_1 = 0
             index_2 = 1

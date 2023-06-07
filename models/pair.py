@@ -10,8 +10,7 @@ class Pair:
             players_list.append(player_name)
             index += 1
         random.shuffle(players_list)
-        return players_list
-        
+        return players_list        
     def get_score(player_1, player_2, score_1, score_2, winner_name):
         if player_1 == winner_name:
             score_1 += 1
@@ -22,7 +21,9 @@ class Pair:
             score_2 += 0.5
         return player_1, player_2, score_1, score_2  
     
-    def get_next_pair(list):
+    
+    
+    def get_next_ranking(list):
         new_list = list.copy()
         new_list.sort(key = lambda x: x[1], reverse=True)
         index_1 = 0
