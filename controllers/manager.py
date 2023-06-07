@@ -57,10 +57,13 @@ class Manager:
         matches__init__ = Matches(tournament_name, current_round_nb)
         if current_round_nb == 1:
             match_list = matches__init__.initial_match_list()
+        elif current_round_nb == 5:
+            print("    This tournament ended !")
+            return
         else:
             statute = Tournament.check_round_statute(tournament_name, (current_round_nb - 1))
             if statute == "In progress":
-                print("You must end the round in progress ! ")
+                print("    You must end the round in progress ! ")
                 return
             match_list = matches__init__.match_list(Matches.next_match_list)       
         rounds__init__ = Rounds(current_round_nb, match_list)
@@ -78,7 +81,7 @@ class Manager:
         current_round_nb = Tournament.get_current_round_nb(tournament_name)
         statute = Tournament.check_round_statute(tournament_name, current_round_nb)
         if statute != "In progress":
-            print("No round in progress ! ")
+            print("    No round in progress ! ")
             return
         index_round = (current_round_nb - 1)
         matches__init__ = Matches(tournament_name, current_round_nb)

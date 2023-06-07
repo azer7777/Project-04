@@ -45,146 +45,22 @@ a = [
             ]
         ]
     ],
-    [
-        [
-            [
-                "efef",
-                2
-            ],
-            [
-                "drgdg",
-                1
-            ]
-        ],
-        [
-            [
-                "gfhj",
-                1.5
-            ],
-            [
-                "grfgrf",
-                1.0
-            ]
-        ],
-        [
-            [
-                "sdgsthg",
-                1.0
-            ],
-            [
-                "iklki",
-                0.5
-            ]
-        ],
-        [
-            [
-                "sdgrfgf",
-                0.5
-            ],
-            [
-                "dht",
-                0.5
-            ]
-        ]
-    ],
-    [
-        [
-            [
-                "efef",
-                2.5
-            ],
-            [
-                "gfhj",
-                2.0
-            ]
-        ],
-        [
-            [
-                "drgdg",
-                1.5
-            ],
-            [
-                "grfgrf",
-                1.5
-            ]
-        ],
-        [
-            [
-                "sdgsthg",
-                1.5
-            ],
-            [
-                "iklki",
-                1.0
-            ]
-        ],
-        [
-            [
-                "sdgrfgf",
-                1.0
-            ],
-            [
-                "dht",
-                1.0
-            ]
-        ]
-    ],
-    [
-        [
-            [
-                "efef",
-                3.5
-            ],
-            [
-                "gfhj",
-                3.0
-            ]
-        ],
-        [
-            [
-                "drgdg",
-                2.5
-            ],
-            [
-                "grfgrf",
-                2.5
-            ]
-        ],
-        [
-            [
-                "sdgsthg",
-                2.5
-            ],
-            [
-                "iklki",
-                2.0
-            ]
-        ],
-        [
-            [
-                "sdgrfgf",
-                2.0
-            ],
-            [
-                "dht",
-                2.0
-            ]
-        ]
-    ]
 ]
-
-def get_chess_national_id():
-    two_letters = input("Enter chess national id first two letters : ")
-    five_numbers = input("Enter chess national id five last numbers : ")
-    while (len(two_letters) != 2 and two_letters is not str and
-           len(five_numbers) != 5 and two_letters is not int) :
-        print("Invalid ID")
-        print("Try again")
-        two_letters = input("Enter chess national id first two letters : ")
-        five_numbers = input("Enter chess national id five last numbers : ")
-    chess_national_id = (two_letters).upper() + str(five_numbers)
-    return chess_national_id
+e = [['efef', 3], ['iklki', 3], ['sdgrfgf', 0], ['drgdg', 1], ['grfgrf', 0.5], ['sdgsthg', 0.5], ['dht', 0], ['gfhj', 1]]
+def get_next_pair(list):
+    new_list = list.copy()
+    new_list.sort(key = lambda x: x[1], reverse=True)
+    index_1 = 0
+    index_2 = 1
+    for i in range((int(len(new_list) / 2) - 1)):
+        if new_list[index_1] == list[index_1] and new_list[index_2] == list[index_2]:
+            new_list[index_2], new_list[index_2 + 1] = new_list[index_2 + 1], new_list[index_2]
+        index_1 += 2
+        index_2 += 2   
+    return new_list, list
+        
     
-r  = get_chess_national_id()
 
-print(r)
+t = get_next_pair(e)
+
+print(t[0])

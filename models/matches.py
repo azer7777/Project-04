@@ -68,12 +68,12 @@ class Matches():
         list.append(player_01)
         list.append(player_02)
         if nb_of_matches > (index_match):
-            list.sort(key = lambda x: x[1], reverse=True)
+            new_list = Pair.get_next_pair(list)
             match_list = []
             index_1 = 0
             index_2 = 1
             for i in range(int(len(list) / 2)):
-                create_match = Matches.create_next_match(list[index_1], list[index_2])
+                create_match = Matches.create_next_match(new_list[index_1], new_list[index_2])
                 match_list.append(create_match)                           
                 index_1 += 2
                 index_2 += 2
