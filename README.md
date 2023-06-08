@@ -50,4 +50,3 @@ Entrez la commande:
 ````
 flake8 --format=html --htmldir=flake-report
 ````
-Le rapport sera généré dans le dossier flake8.
