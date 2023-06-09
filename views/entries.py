@@ -52,16 +52,14 @@ class Entries:
         return date
 
     def get_selected_tournament_name():
-        tournament_name = input(
-            """   
-                                    
-                                        Select a tournament by entering its name : """
-        )
+        print()
+        print()
+        tournament_name = input("""       Select a tournament by entering its name : """)
+        print()
         return tournament_name
 
     def get_winner_name():
-        winner_name = input(
-            """ 
-                                   Enter the above match winner name (press "Enter" if a draw) : """
-        )
+        print()
+        winner_name = input("""       Enter the above match winner name (press "Enter" if a draw) : """)
+        print()
         return winner_name

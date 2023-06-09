@@ -11,7 +11,7 @@ class Menu:
         option = input(
             """
                           1 : Player_menu             2 : Tournament_menu
-                          3 : Quit      
+                          3 : Quit
                                Enter a matching number to choose an option : """
         )
         if option == "1":
@@ -32,7 +32,7 @@ class Menu:
         option = input(
             """
                           1 : Add a player             2 : Display all players
-                          3 : Main menu                          
+                          3 : Main menu
                                Enter a matching number to choose an option : """
         )
         if option == "1":
@@ -69,13 +69,13 @@ class Menu:
         elif option == "3":
             tournament_name = Entries.get_selected_tournament_name()
             select_tournament = Manager.select_tournament(tournament_name)
-            if select_tournament == None:
+            if select_tournament is None:
                 Menu.tournament_menu()
             else:
                 while True:
                     print(
-                        """        
-                                 Tournament {} is selected                     
+                        """
+                                 Tournament {} is selected
                                                              """.format(
                             tournament_name
                         )
@@ -83,14 +83,14 @@ class Menu:
                     option = input(
                         """
                                 1 : Start or end a round                2 : Display the players
-                                3 : Display rounds and matches          4 : Tournament menu      
+                                3 : Display rounds and matches          4 : Tournament menu
                                     Enter a matching number to choose an option : """
                     )
                     if option == "1":
                         option = input(
                             """
                                    1 : Create a round            2 : End current round
-                                   3 : Tournament menu          
+                                   3 : Tournament menu
                                        Enter a matching number to choose an option : """
                         )
                         if option == "1":
@@ -107,7 +107,7 @@ class Menu:
                         option = input(
                             """
                                    1 : Display all rounds            2 : Display all matches
-                                   3 : Tournament menu                     
+                                   3 : Tournament menu
                                        Enter a matching number to choose an option : """
                         )
                         if option == "1":
