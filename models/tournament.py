@@ -63,6 +63,8 @@ class Tournament:
         selected_round = SaveLoad.selected_archive(
             "Round_name", round_name, file_name=("rounds_info/" + tournament_name)
         )
+        if selected_round is None:
+            return None
         statute = selected_round["End_date_time"]
         return statute
 

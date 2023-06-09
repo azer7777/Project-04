@@ -99,6 +99,7 @@ class Menu:
                             Manager.end_round(tournament_name)
                         elif option == "3":
                             Menu.tournament_menu()
+                            break
                         else:
                             print("You can only enter a matching number !")
                     elif option == "2":
@@ -116,13 +117,16 @@ class Menu:
                             Manager.display_matches(tournament_name)
                         elif option == "3":
                             Menu.tournament_menu()
+                            break
                         else:
                             print("You can only enter a matching number !")
                     elif option == "4":
                         Menu.tournament_menu()
+                        break
                     else:
                         print("You can only enter a matching number !")
                         Menu.tournament_menu()
+                        break
         elif option == "4":
             Menu.main_menu()
         else:

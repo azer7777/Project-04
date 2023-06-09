@@ -14,7 +14,7 @@ class Manager:
         serialized_data = Player(
             player_entries[0], player_entries[1], player_entries[2], player_entries[3]
         ).serialize_player_data()
-        SaveLoad.save(serialized_data, file_name="registred_players")
+        SaveLoad.save(serialized_data, path_part="", file_name="registred_players")
         return
 
     def display_all_players():
@@ -34,9 +34,9 @@ class Manager:
         )
         tournament_info_serialized = tournament__init__.get_tournament_info_serialized()
         tournament_players_serialized = tournament__init__.get_tournament_players_serialized()
-        SaveLoad.save(tournament_info_serialized, file_name="tournaments_info")
+        SaveLoad.save(tournament_info_serialized, path_part="", file_name="tournaments_info")
         SaveLoad.save_tournament_players(
-            tournament_players_serialized, file_name=("tournaments_players/" + tournament_entries[0])
+            tournament_players_serialized, path_part="tournaments_players/", file_name=(tournament_entries[0])
         )
         return
 
@@ -77,8 +77,8 @@ class Manager:
         rounds__init__ = Rounds(current_round_nb, match_list)
         round_maches_seiralized = rounds__init__.get_round_maches_serialized()
         round_info_serialized = rounds__init__.get_round_info_serialized()
-        SaveLoad.save(round_maches_seiralized, file_name=("rounds_matches/" + tournament_name))
-        SaveLoad.save(round_info_serialized, file_name=("rounds_info/" + tournament_name))
+        SaveLoad.save(round_maches_seiralized, path_part="rounds_matches/", file_name=(tournament_name))
+        SaveLoad.save(round_info_serialized, path_part="rounds_info/", file_name=(tournament_name))
         tournament_changes = {"Current_round_nb": current_round_nb}
         SaveLoad.update("Tournament_name", tournament_name, tournament_changes, file_name="tournaments_info")
         print(
@@ -92,7 +92,7 @@ class Manager:
     def end_round(tournament_name):
         current_round_nb = Tournament.get_current_round_nb(tournament_name)
         statute = Tournament.check_round_statute(tournament_name, current_round_nb)
-        if statute != "In progress":
+        if statute != "In progress" or statute is None:
             print("    No round in progress ! ")
             return
         index_round = current_round_nb - 1
@@ -108,7 +108,7 @@ class Manager:
             end_time = time.strftime("%d/%m/%Y")
             tournament_changes = {"End_date": end_time}
             SaveLoad.update("Tournament_name", tournament_name, tournament_changes, file_name="tournaments_info")
-            print(""""    Tournament updated """)
+            print("""    Tournament updated """)
         return
 
     def display_rounds(tournament_name):
@@ -119,6 +119,7 @@ class Manager:
         round_nb = 1
         all_rounds = SaveLoad.load_only(file_name=("rounds_matches/" + tournament_name))
         if all_rounds is None:
+            print("""    File doesn't exist """)
             return
         for one_round in all_rounds:
             print()

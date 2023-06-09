@@ -1,23 +1,28 @@
 import json
+import os
 from os import path
 import pandas
 
 
 class SaveLoad:
-    def save(data_serialized, file_name=""):
-        if not path.exists("database/" + file_name):
-            with open("database/" + file_name, "w") as json_file:
+    def save(data_serialized, path_part, file_name=""):
+        if not os.path.exists("database/" + path_part):
+            os.makedirs("database/" + path_part)
+        if not path.exists("database/" + path_part + file_name):
+            with open("database/" + path_part + file_name, "w") as json_file:
                 json.dump([data_serialized], json_file, indent=4, separators=(",", ": "))
         else:
-            with open("database/" + file_name) as fp:
+            with open("database/" + path_part + file_name) as fp:
                 data_list = json.load(fp)
             data_list.append(data_serialized)
-            with open("database/" + file_name, "w") as json_file:
+            with open("database/" + path_part + file_name, "w") as json_file:
                 json.dump(data_list, json_file, indent=4, separators=(",", ": "))
         return
 
-    def save_tournament_players(data_serialized, file_name=""):
-        with open("database/" + file_name, "w") as json_file:
+    def save_tournament_players(data_serialized, path_part, file_name=""):
+        if not os.path.exists("database/" + path_part):
+            os.makedirs("database/" + path_part)
+        with open("database/" + path_part + file_name, "w") as json_file:
             json.dump(data_serialized, json_file, indent=4, separators=(",", ": "))
         return
 
