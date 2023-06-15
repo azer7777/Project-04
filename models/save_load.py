@@ -8,27 +8,27 @@ class SaveLoad:
     def save(data_serialized, path_part, file_name=""):
         if not os.path.exists("database/" + path_part):
             os.makedirs("database/" + path_part)
-        if not path.exists("database/" + path_part + file_name):
-            with open("database/" + path_part + file_name, "w") as json_file:
+        if not path.exists("database/" + path_part + file_name + ".json"):
+            with open("database/" + path_part + file_name + ".json", "w") as json_file:
                 json.dump([data_serialized], json_file, indent=4, separators=(",", ": "))
         else:
-            with open("database/" + path_part + file_name) as fp:
+            with open("database/" + path_part + file_name + ".json") as fp:
                 data_list = json.load(fp)
             data_list.append(data_serialized)
-            with open("database/" + path_part + file_name, "w") as json_file:
+            with open("database/" + path_part + file_name + ".json", "w") as json_file:
                 json.dump(data_list, json_file, indent=4, separators=(",", ": "))
         return
 
     def save_tournament_players(data_serialized, path_part, file_name=""):
         if not os.path.exists("database/" + path_part):
             os.makedirs("database/" + path_part)
-        with open("database/" + path_part + file_name, "w") as json_file:
+        with open("database/" + path_part + file_name + ".json", "w") as json_file:
             json.dump(data_serialized, json_file, indent=4, separators=(",", ": "))
         return
 
     def load(file_name="", title=""):
         try:
-            with open("database/" + file_name) as fp:
+            with open("database/" + file_name + ".json") as fp:
                 report = json.load(fp)
         except FileNotFoundError:
             print("""    File doesn't exist """)
@@ -48,7 +48,7 @@ class SaveLoad:
 
     def load_only(file_name=""):
         try:
-            with open("database/" + file_name) as fp:
+            with open("database/" + file_name + ".json") as fp:
                 report = json.load(fp)
         except FileNotFoundError:
             return None

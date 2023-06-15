@@ -21,9 +21,10 @@ class Tournament:
             print("Must be even !")
             print("Try again")
             nb_of_players = Tournament.check_integer(input_message)
-        SaveLoad.load(file_name="registred_players")
+        SaveLoad.load(file_name="registred_players", title='tournament players')
         tournament_players_list = []
         for i in range(nb_of_players):
+            print()
             player_name = input("Select a player from  the above list by entring a family name : ")
             selection = SaveLoad.selected_archive("Family_name", player_name, file_name="registred_players")
             while selection is None:
